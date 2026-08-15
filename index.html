@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="RAY/STUDIO — experimental digital systems, interfaces and interactive experiences.">
+<title>RAY/STUDIO — Interactive Digital Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css"><link rel="stylesheet" href="assets/css/home-services.css"><link rel="stylesheet" href="assets/css/home-testimonials.css">
+</head>
+<body>
+<canvas id="system-canvas" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-ball" aria-hidden="true"><span></span></div>
+<div class="cursor-label" aria-hidden="true">VIEW</div>
+
+<div class="boot" id="boot">
+  <div class="boot-mark">RAY<span>/</span></div>
+  <div class="boot-track"><i></i></div>
+  <div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>00%</b></div>
+</div>
+
+<header class="site-header">
+  <a class="brand magnetic" href="index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+  <nav id="main-nav" aria-hidden="true">
+    <a class="nav-link magnetic" href="index.html" data-cursor="OPEN">HOME</a>
+    <div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
+    <a class="nav-link magnetic" href="pages/about.html" data-cursor="OPEN">ABOUT</a>
+    <a class="nav-link magnetic" href="pages/work.html" data-cursor="OPEN">WORK</a>
+    <a class="nav-link magnetic" href="pages/services.html" data-cursor="OPEN">SERVICES</a>
+    <a class="nav-link magnetic" href="pages/contact.html" data-cursor="SEND">CONTACT</a>
+    <a class="nav-link magnetic" href="pages/lab.html" data-cursor="LAB">LAB</a>
+    <a class="nav-link magnetic" href="pages/void.html" data-cursor="VOID">VOID</a>
+    <a class="nav-link magnetic" href="pages/observatory.html" data-cursor="ORBIT">OBSERVATORY</a>
+    <a class="nav-link magnetic" href="pages/core.html" data-cursor="CORE">CORE</a>
+  </nav>
+  <button class="menu-toggle magnetic" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+</header>
+
+<main class="home">
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-kicker"><span>RAY/STUDIO // PRIVATE BUILD</span><span>INTERACTIVE CORE / ONLINE</span></div>
+  <div class="hero-copy">
+    <span class="eyebrow">[ POINTER LINK ESTABLISHED ]</span>
+    <h1 class="display-title split">DESIGN<br><i>THE</i><br>UNKNOWN</h1>
+    <p>Interfaces built like private machines: quiet, precise, responsive — and full of things that react when you touch them.</p>
+    <a class="ball-arrow magnetic" href="pages/work.html" data-cursor="OPEN"><span>ENTER ARCHIVE</span><b><i></i></b></a>
+  </div>
+  <div class="hero-terminal panel local-interaction code-terminal" id="ray-editor">
+    <div class="panel-head">
+      <span><i></i>RAY_KERNEL / EDITOR</span>
+      <b id="editor-status">READY</b>
+    </div>
+    <div class="editor-toolbar" role="toolbar" aria-label="Code editor controls">
+      <button class="editor-tab active" type="button" data-file="main.js">main.js</button>
+      <button class="editor-tab" type="button" data-file="style.css">style.css</button>
+      <button class="editor-tab" type="button" data-file="index.html">index.html</button>
+      <span class="editor-spacer"></span>
+      <button class="editor-action" id="editor-run" type="button">RUN <span>⌘↵</span></button>
+    </div>
+    <div class="code-editor" data-file="main.js">
+      <div class="editor-gutter" id="editor-gutter" aria-hidden="true"></div>
+      <textarea id="code-input" spellcheck="false" wrap="off" aria-label="Code editor"></textarea>
+    </div>
+    <div class="editor-suggestions" id="editor-suggestions" hidden role="listbox" aria-label="Code suggestions"></div>
+    <div class="editor-footer">
+      <span id="editor-position">Ln 1, Col 1</span>
+      <span id="editor-language">JAVASCRIPT</span>
+      <span id="editor-message">READY / LOCAL BUFFER</span>
+    </div>
+    <div class="terminal-prompt"><span>ray@studio:~$</span> <span id="editor-command">edit main.js</span> <i class="blink">█</i></div>
+  </div>
+  <div class="hero-coords"><span class="pointer-readout">PX 000 / PY 000</span><span>FRAME 001 / 1440</span></div>
+</section>
+
+<section class="intro-command section-pad">
+  <div class="section-index">01 / COMMAND</div>
+  <div class="command-main">
+    <span class="eyebrow">THE BRIEF IS ONLY THE ENTRY POINT.</span>
+    <h2 class="outline-title">TURNING<br>QUESTIONS<br><i>INTO SYSTEMS</i></h2>
+  </div>
+  <div class="command-aside">
+    <p>Strategy, art direction, interaction and front-end engineering are treated as one connected system.</p>
+    <a class="text-link magnetic" href="pages/about.html" data-cursor="READ">READ THE METHOD <i>↗</i></a>
+  </div>
+</section>
+
+<!-- Optimized version of the section shown in the user's screenshot -->
+<section class="signal-section section-pad" id="signal">
+  <div class="signal-sticky">
+    <span class="section-index">02 / SIGNAL</span>
+    <h2 class="signal-title">HOW THE<br><i>SIGNAL</i><br>MOVES</h2>
+    <p>Four decisions. One continuous system. Scroll through the process and the interface traces the route for you.</p>
+    <div class="signal-progress"><i></i></div>
+    <div class="signal-state"><span id="signal-state">01</span><b>INPUT</b></div>
+  </div>
+  <div class="signal-steps">
+    <a class="signal-card magnetic-row active" href="pages/about.html#question" data-signal="01" data-state="INPUT" data-cursor="QUESTION">
+      <span class="step-no">01</span><div><small>INPUT</small><h3>QUESTION</h3><p>Find the actual problem hiding underneath the brief.</p><strong>OPEN NODE ↗</strong></div><i class="node"></i>
+    </a>
+    <a class="signal-card magnetic-row" href="pages/about.html#reduce" data-signal="02" data-state="PROCESS" data-cursor="REDUCE">
+      <span class="step-no">02</span><div><small>PROCESS</small><h3>REDUCE</h3><p>Remove everything that doesn't earn its place.</p><strong>OPEN NODE ↗</strong></div><i class="node"></i>
+    </a>
+    <a class="signal-card magnetic-row" href="pages/about.html#build" data-signal="03" data-state="SYSTEM" data-cursor="BUILD">
+      <span class="step-no">03</span><div><small>SYSTEM</small><h3>BUILD</h3><p>Turn the visual idea into repeatable components.</p><strong>OPEN NODE ↗</strong></div><i class="node"></i>
+    </a>
+    <a class="signal-card magnetic-row" href="pages/about.html#release" data-signal="04" data-state="OUTPUT" data-cursor="RELEASE">
+      <span class="step-no">04</span><div><small>OUTPUT</small><h3>RELEASE</h3><p>Ship something that survives contact with real people.</p><strong>OPEN NODE ↗</strong></div><i class="node"></i>
+    </a>
+  </div>
+</section>
+
+
+<section class="system-map-section section-pad">
+  <div class="system-map-copy">
+    <span class="section-index">04 / SYSTEM NETWORK</span>
+    <h2>THE<br>BUILDING<br><i>BETWEEN ROOMS</i></h2>
+    <p>RAY/STUDIO is not a stack of pages. It is one connected environment. Hover a node to wake its route, then enter the system you want.</p>
+    <div class="system-map-status"><i></i><span id="system-map-status">NETWORK / STANDBY</span></div>
+  </div>
+  <div class="system-map panel" id="system-map" aria-label="RAY/STUDIO system network">
+    <svg viewBox="0 0 900 600" role="img" aria-labelledby="system-map-title">
+      <title id="system-map-title">Interactive RAY/STUDIO system network</title>
+      <g class="map-lines">
+        <path d="M450 90 C450 170 310 175 255 270"/>
+        <path d="M450 90 C450 170 590 175 645 270"/>
+        <path d="M255 270 C290 345 270 410 230 485"/>
+        <path d="M645 270 C610 345 635 410 690 485"/>
+        <path d="M230 485 C360 540 440 520 450 470"/>
+        <path d="M450 470 C560 520 650 535 690 485"/>
+        <path d="M255 270 C380 230 520 230 645 270"/>
+      </g>
+      <g class="map-nodes">
+        <a class="map-node" data-system="observatory" href="pages/observatory.html" data-cursor="ORBIT"><circle cx="450" cy="90" r="26"/><circle class="node-core" cx="450" cy="90" r="5"/><text x="450" y="52">OBSERVATORY</text></a>
+        <a class="map-node" data-system="work" href="pages/work.html" data-cursor="OPEN"><circle cx="255" cy="270" r="23"/><circle class="node-core" cx="255" cy="270" r="4"/><text x="255" y="235">WORK</text></a>
+        <a class="map-node" data-system="void" href="pages/void.html" data-cursor="VOID"><circle cx="645" cy="270" r="23"/><circle class="node-core" cx="645" cy="270" r="4"/><text x="645" y="235">VOID</text></a>
+        <a class="map-node" data-system="lab" href="pages/lab.html" data-cursor="LAB"><circle cx="230" cy="485" r="20"/><circle class="node-core" cx="230" cy="485" r="4"/><text x="230" y="525">LAB</text></a>
+        <a class="map-node" data-system="about" href="pages/about.html" data-cursor="OPEN"><circle cx="450" cy="470" r="20"/><circle class="node-core" cx="450" cy="470" r="4"/><text x="450" y="510">ABOUT</text></a>
+        <a class="map-node" data-system="contact" href="pages/contact.html" data-cursor="SEND"><circle cx="690" cy="485" r="20"/><circle class="node-core" cx="690" cy="485" r="4"/><text x="690" y="525">CONTACT</text></a>
+      </g>
+    </svg>
+    <div class="system-map-readout"><span>ROUTE</span><b id="system-map-route">OBSERVATORY / CORE</b></div>
+  </div>
+</section>
+
+<section class="work-feature section-pad">
+  <div class="section-index">03 / SELECTED SIGNALS</div>
+  <div class="feature-heading"><h2>BUILT TO<br><i>MOVE</i></h2><a class="text-link magnetic" href="pages/work.html" data-cursor="ARCHIVE">ALL WORK ↗</a></div>
+  <div class="project-matrix">
+    <a class="project-tile tile-a magnetic" href="pages/project-nova.html" data-cursor="OPEN">
+      <div class="tile-art local-interaction"><span>NOVA</span><i></i></div><small>01 / COMMERCE</small><h3>NOVA / LIVE COMMERCE</h3><p>Motion-first storefront architecture.</p>
+    </a>
+    <a class="project-tile tile-b magnetic" href="pages/project-echo.html" data-cursor="OPEN">
+      <div class="tile-art local-interaction"><span>ECHO</span><i></i></div><small>02 / CULTURE</small><h3>ECHO / DIGITAL EXHIBITION</h3><p>A gallery that behaves like an instrument.</p>
+    </a>
+    <a class="project-tile tile-c magnetic" href="pages/project-zero.html" data-cursor="OPEN">
+      <div class="tile-art local-interaction"><span>ZERO</span><i></i></div><small>03 / SYSTEM</small><h3>ZERO / CONTROL SURFACE</h3><p>A brutalist control panel for complex data.</p>
+    </a>
+  </div>
+</section>
+
+
+
+
+<section class="home-services section-pad" id="services">
+  <div class="home-services-head"><span class="section-index">05 / SERVICES</span><div><h2>MAKE THE<br><i>SIGNAL REAL</i></h2><p>Four capabilities. One build bus. Hover a node to see how the studio turns an idea into a responsive system.</p></div><a class="text-link magnetic" href="pages/services.html" data-cursor="OPEN">OPEN SERVICES ↗</a></div>
+  <div class="home-service-system">
+    <div class="home-service-rail">
+      <button class="home-service-node active" data-service="strategy"><span>01</span><b>STRATEGY</b><small>DEFINE / REDUCE</small></button>
+      <button class="home-service-node" data-service="design"><span>02</span><b>DESIGN</b><small>SHAPE / DIRECT</small></button>
+      <button class="home-service-node" data-service="motion"><span>03</span><b>MOTION</b><small>TIME / RESPONSE</small></button>
+      <button class="home-service-node" data-service="build"><span>04</span><b>BUILD</b><small>CODE / DEPLOY</small></button>
+    </div>
+    <div class="home-service-output">
+      <div class="home-service-orbit"><canvas id="home-service-canvas"></canvas><div class="home-service-core">RAY<small>BUILD BUS</small></div></div>
+      <div class="home-service-copy"><span id="home-service-code">SERVICE // STRATEGY</span><h3 id="home-service-title">FIND THE SIGNAL</h3><p id="home-service-desc">Positioning, architecture and a clear interaction model before pixels start moving.</p><div class="home-service-bottom"><span>OUTPUT <b id="home-service-output">RESEARCH / SITEMAP / DIRECTION / PROTOTYPE</b></span><span>SIGNAL <b id="home-service-signal">084</b></span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="home-testimonials section-pad" id="testimonials">
+  <div class="home-testimonials-head">
+    <div><span class="section-index">06 / SIGNAL RECEIVED</span><h2>WHAT<br><i>STAYED</i></h2></div>
+    <p>Good systems leave a trace after the launch. Move through the field and the notes move with you.</p>
+    <a class="text-link magnetic" href="pages/about.html#faq" data-cursor="READ">READ THE STUDIO ↗</a>
+  </div>
+  <div class="home-testimonial-field" id="home-testimonial-field"><span class="home-testimonial-hint">POINTER / FIELD RESPONSE</span>
+    <div class="home-testimonial-grid"></div>
+    <div class="home-testimonial-card htc-a" data-depth="1.1"><span>CLIENT / 01</span><blockquote>“It stopped feeling like a website and started feeling like a place.”</blockquote><small>PRODUCT / DIGITAL LEAD</small></div>
+    <div class="home-testimonial-card htc-b" data-depth="1.45"><span>CLIENT / 02</span><blockquote>“The system gave the brand a pulse without adding noise.”</blockquote><small>FOUNDER / CREATIVE DIRECTOR</small></div>
+    <div class="home-testimonial-card htc-c" data-depth=".8"><span>CLIENT / 03</span><blockquote>“Every interaction had a reason. That changed how people talked about the product.”</blockquote><small>STRATEGY / PRODUCT TEAM</small></div>
+    <div class="home-testimonial-card htc-d" data-depth="1.25"><span>CLIENT / 04</span><blockquote>“Fast, strange in the right places, and built like someone cared about the details.”</blockquote><small>BRAND / MARKETING</small></div>
+    <div class="home-feedback-core"><i></i><span>LIVE<br>FEEDBACK</span><b>04</b></div>
+    <div class="home-testimonial-readout"><span>FIELD / LIVE</span><b id="home-testimonial-speed">0.00</b></div>
+  </div>
+</section>
+
+<section class="observatory-preview-section section-pad">
+  <div class="observatory-preview-copy"><span class="section-index">07 / OBSERVATORY</span><h2>WATCH<br>THE<br><i>NOISE</i></h2><p>A living solar system rendered as an instrument. Drag the system, change its orbital regime, and watch every body react.</p><a class="ball-arrow magnetic" href="pages/observatory.html" data-cursor="ENTER"><span>ENTER OBSERVATORY</span><b><i></i></b></a></div>
+  <a class="home-observatory panel magnetic" href="pages/observatory.html" data-cursor="OPEN"><canvas id="home-observatory-canvas"></canvas><div><span>FIELD / LIVE</span><b>OPEN ↗</b></div></a>
+</section>
+
+<section class="lab-preview section-pad">
+  <div class="lab-copy"><span class="section-index">08 / LAB</span><h2>BREAK<br>THE<br><i>INTERFACE</i></h2><p>Try the experimental workbench. It contains live motion controls, visual parameters and a tiny game hidden inside the system.</p><a class="ball-arrow magnetic" href="pages/lab.html" data-cursor="ENTER"><span>ENTER LAB</span><b><i></i></b></a></div>
+  <div class="lab-visual panel tilt" data-tilt><div class="lab-grid"></div><div class="lab-orb"></div><span class="lab-code">MOTION / 0.92<br>NOISE / 0.018<br>FPS / 144<br>INPUT / LINKED</span></div>
+</section>
+
+<section class="final-cta section-pad">
+  <div class="eyebrow">RAY@STUDIO:~$ ./START_PROJECT</div>
+  <h2 class="display-title">READY WHEN<br><i>YOU ARE</i></h2>
+  <a class="ball-arrow huge magnetic" href="pages/contact.html" data-cursor="SEND"><span>INITIALIZE CONTACT</span><b><i></i></b></a>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <a class="footer-mark magnetic" href="index.html" data-cursor="HOME">RAY<span>/</span><span>STUDIO</span></a>
+    <div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div>
+    <p class="footer-sub">RAY/STUDIO / DIGITAL SYSTEMS / INTERFACES / EXPERIMENTS. A private build for ideas that need motion, logic and a little friction.</p>
+    <a class="footer-command-link magnetic" href="pages/contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a>
+  </div>
+  <div class="footer-grid">
+    <div class="footer-column">
+      <span class="footer-label">NAVIGATION</span>
+      <a class="magnetic" href="index.html" data-cursor="OPEN">01 / HOME</a>
+      <a class="magnetic" href="pages/about.html" data-cursor="OPEN">02 / ABOUT</a>
+      <a class="magnetic" href="pages/work.html" data-cursor="OPEN">03 / WORK</a>
+      <a class="magnetic" href="pages/services.html" data-cursor="OPEN">04 / SERVICES</a>
+      <a class="magnetic" href="pages/contact.html" data-cursor="SEND">05 / CONTACT</a>
+      <a class="magnetic" href="pages/lab.html" data-cursor="LAB">06 / LAB</a>
+      <a class="magnetic" href="pages/void.html" data-cursor="VOID">07 / VOID</a>
+    </div>
+    <div class="footer-column">
+      <span class="footer-label">SYSTEM</span>
+      <span class="footer-live"><i></i> CORE ONLINE / 144 FPS</span>
+      <a href="pages/observatory.html">OBSERVATORY ↗</a>
+      <span class="footer-label" style="margin-top:18px">CHANNEL</span>
+      <span class="footer-live">LOCAL / PRIVATE BUILD</span>
+      <span class="footer-live">INTERACTION / LINKED</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>RAY/STUDIO © 2026</span>
+    <span>NO TEMPLATE / NO STATIC RULE</span>
+    <span>PX <b class="pointer-readout">000 / 000</b></span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+<script src="assets/js/app.js"></script><script src="assets/js/cursor-network.js"></script>
+<script src="assets/js/play.js"></script><script src="assets/js/observatory.js"></script><script src="assets/js/home-services.js"></script><script src="assets/js/home-testimonials.js"></script>
+</body></html>

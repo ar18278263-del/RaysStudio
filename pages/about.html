@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="RAY/STUDIO — experimental digital systems, interfaces and interactive experiences.">
+<title>RAY/STUDIO — ABOUT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/about-new.css">
+</head>
+<body>
+<canvas id="system-canvas" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-ball" aria-hidden="true"><span></span></div>
+<div class="cursor-label" aria-hidden="true">VIEW</div>
+
+<div class="boot" id="boot">
+  <div class="boot-mark">RAY<span>/</span></div>
+  <div class="boot-track"><i></i></div>
+  <div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>00%</b></div>
+</div>
+
+<header class="site-header">
+  <a class="brand magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+  <nav id="main-nav" aria-hidden="true">
+    <a class="nav-link magnetic" href="../index.html" data-cursor="OPEN">HOME</a>
+    <div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
+    <a class="nav-link magnetic" href="../pages/about.html" data-cursor="OPEN">ABOUT</a>
+    <a class="nav-link magnetic" href="../pages/work.html" data-cursor="OPEN">WORK</a>
+    <a class="nav-link magnetic" href="../pages/services.html" data-cursor="OPEN">SERVICES</a>
+    <a class="nav-link magnetic" href="../pages/contact.html" data-cursor="SEND">CONTACT</a>
+    <a class="nav-link magnetic" href="../pages/lab.html" data-cursor="LAB">LAB</a>
+    <a class="nav-link magnetic" href="../pages/void.html" data-cursor="VOID">VOID</a>
+    <a class="nav-link magnetic" href="../pages/observatory.html" data-cursor="ORBIT">OBSERVATORY</a>
+    <a class="nav-link magnetic" href="../pages/core.html" data-cursor="CORE">CORE</a>
+  </nav>
+  <button class="menu-toggle magnetic" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+</header>
+
+<main class="inner-page about-page about-redesign">
+<section class="about-signal-hero">
+  <div class="about-hero-grid" aria-hidden="true"></div>
+  <div class="about-hero-top"><span>02 / ABOUT</span><span>RAY/STUDIO / LIVING SYSTEM</span><span>FIELD 01</span></div>
+  <div class="about-hero-copy">
+    <span class="about-kicker"><i></i> INDEPENDENT DIGITAL STUDIO / ONLINE</span>
+    <h1>BUILT TO<br><em>RESPOND</em></h1>
+    <p>RAY/STUDIO makes digital systems that do more than look considered. They listen, react, move and hold together under pressure.</p>
+    <a class="ball-arrow huge magnetic" href="work.html" data-cursor="WORK"><span>ENTER THE WORK</span><b><i></i></b></a>
+  </div>
+  <div class="about-hero-orbit" aria-hidden="true"><div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div><div class="orbit-core"><span>RAY</span><b>01</b></div><i class="orbit-node node-a"></i><i class="orbit-node node-b"></i><i class="orbit-node node-c"></i></div>
+  <div class="about-hero-footer"><span>STRATEGY / DESIGN / MOTION / BUILD</span><span>NO STATIC RULE</span><span>SCROLL TO DECODE ↓</span></div>
+</section>
+
+<section class="about-principles section-pad">
+  <div class="about-section-label"><span>01 / PRINCIPLES</span><p>Four operating rules keep the work sharp when the brief gets noisy.</p></div>
+  <div class="principle-stack">
+    <article><span>01</span><div><small>START WITH THE SIGNAL</small><h2>QUESTION<br><em>THE OBVIOUS</em></h2><p>We remove the expected answer before we design around it. The useful idea usually appears in the gap.</p></div><b>↗</b></article>
+    <article><span>02</span><div><small>MAKE THE SYSTEM VISIBLE</small><h2>DESIGN<br><em>THE BEHAVIOUR</em></h2><p>Motion, hierarchy, feedback and responsive states are part of the identity, not polish added at the end.</p></div><b>↗</b></article>
+    <article><span>03</span><div><small>KEEP THE FRICTION</small><h2>REDUCE<br><em>WITHOUT FLATTENING</em></h2><p>We simplify aggressively, but keep the small moments that make a digital experience feel alive and memorable.</p></div><b>↗</b></article>
+    <article><span>04</span><div><small>SHIP THE REAL THING</small><h2>BUILD<br><em>WHAT MOVES</em></h2><p>The final medium is the browser. We test the edges, optimize the engine and let the interface prove itself.</p></div><b>↗</b></article>
+  </div>
+</section>
+
+<section class="about-testimonials section-pad">
+  <div class="testimonials-head"><div><span>02 / FIELD NOTES</span><h2>WHAT<br><em>THEY FELT</em></h2></div><p>Anonymous notes from the people on the other side of the build. Drag the field with your pointer. The cards drift with the signal.</p></div>
+  <div class="testimonial-field" id="testimonial-field">
+    <div class="testimonial-gridline"></div>
+    <div class="testimonial-card t-one" data-x="-35" data-y="-55"><span>CLIENT / 01</span><blockquote>“It stopped feeling like a website and started feeling like a place.”</blockquote><small>PRODUCT / DIGITAL LEAD</small></div>
+    <div class="testimonial-card t-two" data-x="55" data-y="-25"><span>CLIENT / 02</span><blockquote>“The system gave the brand a pulse without adding noise.”</blockquote><small>FOUNDER / CREATIVE DIRECTOR</small></div>
+    <div class="testimonial-card t-three" data-x="-25" data-y="55"><span>CLIENT / 03</span><blockquote>“Every interaction had a reason. That changed how people talked about the product.”</blockquote><small>STRATEGY / PRODUCT TEAM</small></div>
+    <div class="testimonial-card t-four" data-x="55" data-y="45"><span>CLIENT / 04</span><blockquote>“Fast, strange in the right places, and built like someone cared about the details.”</blockquote><small>BRAND / MARKETING</small></div>
+    <div class="testimonial-core"><i></i><span>LIVE<br>FEEDBACK</span><b>04</b></div>
+    <div class="testimonial-readout"><span>FIELD VELOCITY <b id="testimonial-velocity">0.00</b></span><span>POINTER LINK <b>ACTIVE</b></span></div>
+  </div>
+</section>
+
+<section class="about-faq section-pad" id="faq">
+  <div class="about-section-label"><span>03 / FAQ</span><p>Useful answers before the first message lands in the channel.</p></div>
+  <div class="faq-list">
+    <article class="faq-item open"><button type="button" aria-expanded="true"><span>01</span><strong>WHAT KIND OF WORK DO YOU TAKE ON?</strong><i>+</i></button><div class="faq-answer"><p>Digital identities, interactive websites, product surfaces, campaign experiences and experimental interfaces where the behaviour matters as much as the frame.</p></div></article>
+    <article class="faq-item"><button type="button" aria-expanded="false"><span>02</span><strong>DO YOU HANDLE STRATEGY AND BUILD?</strong><i>+</i></button><div class="faq-answer"><p>Yes. RAY/STUDIO can enter at the question, visual system, motion layer or front-end build. The goal is one connected system rather than a chain of disconnected handoffs.</p></div></article>
+    <article class="faq-item"><button type="button" aria-expanded="false"><span>03</span><strong>HOW EARLY SHOULD WE INVOLVE YOU?</strong><i>+</i></button><div class="faq-answer"><p>Earlier is better when the problem is still moving. A rough brief, product tension or half-formed idea is enough to start a useful conversation.</p></div></article>
+    <article class="faq-item"><button type="button" aria-expanded="false"><span>04</span><strong>CAN THE SYSTEM WORK WITHOUT ALL THE MOTION?</strong><i>+</i></button><div class="faq-answer"><p>Absolutely. Motion is treated as behaviour, not decoration. Every core interaction gets a usable static and reduced-motion state.</p></div></article>
+    <article class="faq-item"><button type="button" aria-expanded="false"><span>05</span><strong>WHAT HAPPENS AFTER LAUNCH?</strong><i>+</i></button><div class="faq-answer"><p>The build can remain a living system. We can continue with performance tuning, new modules, experiments and the next layer of the experience.</p></div></article>
+  </div>
+</section>
+
+<section class="about-close section-pad"><span>04 / NEXT SIGNAL</span><h2>GOOD WORK<br><em>SHOULD MOVE</em></h2><p>Bring the strange brief. We will find the signal inside it and build the thing that responds.</p><a class="ball-arrow huge magnetic" href="contact.html" data-cursor="SEND"><span>START A CONVERSATION</span><b><i></i></b></a></section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <a class="footer-mark magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span></a>
+    <div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div>
+    <p class="footer-sub">RAY/STUDIO / DIGITAL SYSTEMS / INTERFACES / EXPERIMENTS. A private build for ideas that need motion, logic and a little friction.</p>
+    <a class="footer-command-link magnetic" href="contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a>
+  </div>
+  <div class="footer-grid">
+    <div class="footer-column">
+      <span class="footer-label">NAVIGATION</span>
+      <a class="magnetic" href="../index.html" data-cursor="OPEN">01 / HOME</a>
+      <a class="magnetic" href="about.html" data-cursor="OPEN">02 / ABOUT</a>
+      <a class="magnetic" href="work.html" data-cursor="OPEN">03 / WORK</a>
+      <a class="magnetic" href="services.html" data-cursor="OPEN">04 / SERVICES</a>
+      <a class="magnetic" href="contact.html" data-cursor="SEND">05 / CONTACT</a>
+      <a class="magnetic" href="lab.html" data-cursor="LAB">06 / LAB</a>
+      <a class="magnetic" href="void.html" data-cursor="VOID">07 / VOID</a>
+    </div>
+    <div class="footer-column">
+      <span class="footer-label">SYSTEM</span>
+      <span class="footer-live"><i></i> CORE ONLINE / 144 FPS</span>
+      <a href="observatory.html">OBSERVATORY ↗</a>
+      <span class="footer-label" style="margin-top:18px">CHANNEL</span>
+      <span class="footer-live">LOCAL / PRIVATE BUILD</span>
+      <span class="footer-live">INTERACTION / LINKED</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>RAY/STUDIO © 2026</span>
+    <span>NO TEMPLATE / NO STATIC RULE</span>
+    <span>PX <b class="pointer-readout">000 / 000</b></span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+<script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script><script src="../assets/js/about-new.js"></script>
+
+</body></html>

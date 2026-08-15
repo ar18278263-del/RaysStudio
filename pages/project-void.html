@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="RAY/STUDIO — experimental digital systems, interfaces and interactive experiences.">
+<title>RAY/STUDIO — VOID</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<canvas id="system-canvas" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-ball" aria-hidden="true"><span></span></div>
+<div class="cursor-label" aria-hidden="true">VIEW</div>
+
+<div class="boot" id="boot">
+  <div class="boot-mark">RAY<span>/</span></div>
+  <div class="boot-track"><i></i></div>
+  <div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>00%</b></div>
+</div>
+
+<header class="site-header">
+  <a class="brand magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+  <nav id="main-nav" aria-hidden="true">
+    <a class="nav-link magnetic" href="../index.html" data-cursor="OPEN">HOME</a>
+    <div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
+    <a class="nav-link magnetic" href="../pages/about.html" data-cursor="OPEN">ABOUT</a>
+    <a class="nav-link magnetic" href="../pages/work.html" data-cursor="OPEN">WORK</a>
+    <a class="nav-link magnetic" href="../pages/services.html" data-cursor="OPEN">SERVICES</a>
+    <a class="nav-link magnetic" href="../pages/contact.html" data-cursor="SEND">CONTACT</a>
+    <a class="nav-link magnetic" href="../pages/lab.html" data-cursor="LAB">LAB</a>
+    <a class="nav-link magnetic" href="../pages/void.html" data-cursor="VOID">VOID</a>
+    <a class="nav-link magnetic" href="../pages/observatory.html" data-cursor="ORBIT">OBSERVATORY</a>
+    <a class="nav-link magnetic" href="../pages/core.html" data-cursor="CORE">CORE</a>
+  </nav>
+  <button class="menu-toggle magnetic" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+</header>
+
+<main class="project-page">
+<section class="project-hero project-void">
+  <div class="project-meta"><span>04 / EDITORIAL</span><span>TYPE / EDITORIAL / MOVEMENT</span></div>
+  <div class="project-word"><span>VOID</span></div>
+  <div class="project-intro"><span>CASE FILE / OPEN</span><h1>A publication where typography becomes the navigation system</h1><p>Direction, interface and motion were designed as one continuous language. Move your pointer across the field.</p></div>
+</section>
+<section class="project-system section-pad">
+  <div class="project-screen panel local-interaction"><canvas class="project-engine-canvas" data-engine="void" aria-label="Interactive void visual engine"></canvas><div class="screen-noise"></div><span class="screen-status">LIVE PROTOTYPE / 144 FPS</span></div>
+  <div class="project-details"><span>THE SYSTEM</span><h2>NOT A MOCKUP<br><i>A WORKING IDEA</i></h2><p>Every visual element has an interaction rule. Every transition has a reason. This case file is intentionally abstract so the system can become the story.</p><ul><li>Art direction</li><li>Interaction architecture</li><li>Motion design</li><li>Front-end build</li></ul><a class="ball-arrow magnetic" href="../pages/contact.html" data-cursor="BUILD"><span>BUILD SOMETHING LIKE THIS</span><b><i></i></b></a></div>
+</section>
+<section class="project-quote section-pad"><span>/VOID/OUTPUT</span><h2>THE BEST INTERFACE<br>IS THE ONE YOU<br><i>WANT TO TOUCH</i></h2></section>
+<section class="project-nav section-pad"><a class="text-link magnetic" href="work.html" data-cursor="ARCHIVE">← BACK TO ARCHIVE</a><a class="ball-arrow magnetic" href="../pages/project-pulse.html" data-cursor="NEXT"><span>NEXT CASE / PULSE</span><b><i></i></b></a></section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <a class="footer-mark magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span></a>
+    <div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div>
+    <p class="footer-sub">RAY/STUDIO / DIGITAL SYSTEMS / INTERFACES / EXPERIMENTS. A private build for ideas that need motion, logic and a little friction.</p>
+    <a class="footer-command-link magnetic" href="contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a>
+  </div>
+  <div class="footer-grid">
+    <div class="footer-column">
+      <span class="footer-label">NAVIGATION</span>
+      <a class="magnetic" href="../index.html" data-cursor="OPEN">01 / HOME</a>
+      <a class="magnetic" href="about.html" data-cursor="OPEN">02 / ABOUT</a>
+      <a class="magnetic" href="work.html" data-cursor="OPEN">03 / WORK</a>
+      <a class="magnetic" href="services.html" data-cursor="OPEN">04 / SERVICES</a>
+      <a class="magnetic" href="contact.html" data-cursor="SEND">05 / CONTACT</a>
+      <a class="magnetic" href="lab.html" data-cursor="LAB">06 / LAB</a>
+      <a class="magnetic" href="void.html" data-cursor="VOID">07 / VOID</a>
+    </div>
+    <div class="footer-column">
+      <span class="footer-label">SYSTEM</span>
+      <span class="footer-live"><i></i> CORE ONLINE / 144 FPS</span>
+      <a href="observatory.html">OBSERVATORY ↗</a>
+      <span class="footer-label" style="margin-top:18px">CHANNEL</span>
+      <span class="footer-live">LOCAL / PRIVATE BUILD</span>
+      <span class="footer-live">INTERACTION / LINKED</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>RAY/STUDIO © 2026</span>
+    <span>NO TEMPLATE / NO STATIC RULE</span>
+    <span>PX <b class="pointer-readout">000 / 000</b></span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+<script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script>
+<script src="../assets/js/project-engines.js"></script>
+
+</body></html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505">
+<meta name="description" content="RAY/STUDIO — OBSERVATORY, an interactive solar system."><title>RAY/STUDIO — OBSERVATORY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<canvas id="system-canvas" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div><div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true">VIEW</div>
+<div class="boot" id="boot"><div class="boot-mark">RAY<span>/</span></div><div class="boot-track"><i></i></div><div class="boot-meta"><span>CALIBRATING OBSERVATORY</span><b>00%</b></div></div>
+<header class="site-header">
+  <a class="brand magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+  <nav id="main-nav" aria-hidden="true">
+    <a class="nav-link magnetic" href="../index.html" data-cursor="OPEN">HOME</a>
+    <div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
+    <a class="nav-link magnetic" href="../pages/about.html" data-cursor="OPEN">ABOUT</a>
+    <a class="nav-link magnetic" href="../pages/work.html" data-cursor="OPEN">WORK</a>
+    <a class="nav-link magnetic" href="../pages/services.html" data-cursor="OPEN">SERVICES</a>
+    <a class="nav-link magnetic" href="../pages/contact.html" data-cursor="SEND">CONTACT</a>
+    <a class="nav-link magnetic" href="../pages/lab.html" data-cursor="LAB">LAB</a>
+    <a class="nav-link magnetic" href="../pages/void.html" data-cursor="VOID">VOID</a>
+    <a class="nav-link magnetic" href="../pages/observatory.html" data-cursor="ORBIT">OBSERVATORY</a>
+    <a class="nav-link magnetic" href="../pages/core.html" data-cursor="CORE">CORE</a>
+  </nav>
+  <button class="menu-toggle magnetic" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+</header>
+<main class="observatory-page">
+<section class="observatory-hero section-pad"><div class="observatory-intro"><span class="section-index">10 / OBSERVATORY</span><h1 class="display-title split">SLOW<br>DOWN<br><i>THE SIGNAL</i></h1><p>Orbit a living field of points, lines and interference. Nothing is static. Nothing needs to be explained twice.</p><div class="observatory-stats"><span>PLANETS <b id="obs-particles">008</b></span><span>ENERGY <b id="obs-energy">042</b></span><span>MODE <b id="obs-mode">ORBIT</b></span></div></div><div class="observatory-stage panel" id="observatory-stage"><canvas id="observatory-canvas" data-cursor-type="drag"></canvas><div class="obs-hud"><span>DRAG / ORBIT</span><span>WHEEL / ZOOM</span><span>CLICK / PLANET</span></div><div class="obs-crosshair"></div><button id="obs-pulse" class="submit-signal magnetic" data-cursor="PULSE"><span>IMPULSE</span><i>+</i></button></div></section>
+<section class="observatory-controls section-pad"><div><span class="section-index">11 / CONTROL</span><h2>TUNE<br>THE<br><i>ROOM</i></h2></div><div class="obs-control-grid"><button class="obs-mode active magnetic" data-mode="orbit" data-cursor="MODE"><span>01</span><b>ORBIT</b><small>slow / circular</small></button><button class="obs-mode magnetic" data-mode="storm" data-cursor="MODE"><span>02</span> <b>STORM</b><small>fast / unstable</small></button><button class="obs-mode magnetic" data-mode="drift" data-cursor="MODE"><span>03</span><b>DRIFT</b><small>wide / quiet</small></button><button class="obs-mode magnetic" data-mode="void" data-cursor="MODE"><span>04</span><b>VOID</b><small>minimal / deep</small></button></div></section>
+<section class="observatory-note section-pad"><span class="section-index">12 / EXIT</span><h2>WHEN THE<br>NOISE GETS<br><i>QUIET</i></h2><a class="ball-arrow magnetic" href="../index.html" data-cursor="BACK"><span>RETURN HOME</span><b><i></i></b></a></section>
+</main>
+<footer class="site-footer"><div class="footer-main"><a class="footer-mark magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span><span>STUDIO</span></a><div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div><p class="footer-sub">RAY/STUDIO / DIGITAL SYSTEMS / INTERFACES / EXPERIMENTS. A private build for ideas that need motion, logic and a little friction.</p><a class="footer-command-link magnetic" href="contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a></div><div class="footer-grid"><div class="footer-column"><span class="footer-label">NAVIGATION</span><a href="../index.html">01 / HOME</a><a href="about.html">02 / ABOUT</a><a href="work.html">03 / WORK</a><a href="services.html">04 / SERVICES</a><a href="contact.html">05 / CONTACT</a><a href="lab.html">06 / LAB</a><a href="void.html">07 / VOID</a></div><div class="footer-column"><span class="footer-label">SYSTEM</span><span class="footer-live"><i></i> OBSERVATORY / LIVE</span><a href="void.html">VOID FIELD ↗</a><span class="footer-live">INPUT / POINTER + DRAG + WHEEL</span><span class="footer-live">FIELD / CANVAS PHYSICS</span></div></div><div class="footer-bottom"><span>RAY/STUDIO © 2026</span><span>NO TEMPLATE / NO STATIC RULE</span><span>PX <b class="pointer-readout">000 / 000</b></span></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script><script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script><script src="../assets/js/observatory.js"></script>
+</body></html>

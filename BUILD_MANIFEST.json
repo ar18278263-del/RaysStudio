@@ -1,0 +1,22 @@
+{
+  "build": "RAY/STUDIO EXPERIENCE POLISH",
+  "source": "RAY_STUDIO_VOID_PRESSURE_CTA_FIX(1).zip",
+  "changes": [
+    "unified cursor physics",
+    "velocity comet trail",
+    "contextual cursor states",
+    "RayCore route/pointer events",
+    "warp page transitions",
+    "heading hover glitch",
+    "magnetic micro-interactions",
+    "observatory click response",
+    "visibility/reduced-motion hooks",
+    "route count correction",
+    "local-link audit",
+    "javascript syntax audit"
+  ],
+  "validation": {
+    "js_syntax_errors": 0,
+    "missing_local_targets": 0
+  }
+}

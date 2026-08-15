@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#060606"><meta name="description" content="RAY/STUDIO CORE — central control system and route preview engine.">
+<title>RAY/STUDIO — CORE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/core-new.css">
+</head>
+<body class="core-new-page">
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true">CORE</div>
+<header class="site-header core-header">
+  <a class="brand magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+  <nav id="main-nav" aria-hidden="true">
+    <a class="nav-link magnetic" href="../index.html" data-cursor="OPEN">HOME</a><div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
+    <a class="nav-link magnetic" href="about.html" data-cursor="OPEN">ABOUT</a><a class="nav-link magnetic" href="work.html" data-cursor="OPEN">WORK</a><a class="nav-link magnetic" href="services.html" data-cursor="OPEN">SERVICES</a><a class="nav-link magnetic" href="contact.html" data-cursor="SEND">CONTACT</a><a class="nav-link magnetic" href="lab.html" data-cursor="LAB">LAB</a><a class="nav-link magnetic" href="void.html" data-cursor="VOID">VOID</a><a class="nav-link magnetic" href="observatory.html" data-cursor="ORBIT">OBSERVATORY</a><a class="nav-link magnetic active" href="core.html" data-cursor="CORE" aria-current="page">CORE</a>
+  </nav><button class="menu-toggle magnetic" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+</header>
+
+<main>
+<section class="core-command-hero">
+  <div class="core-hero-grid">
+    <div class="core-intro">
+      <div class="eyebrow"><span class="live-dot"></span> CENTRAL OPERATING LAYER / ONLINE</div>
+      <h1>CORE<br><em>CONTROL</em></h1>
+      <p>A living map of RAY/STUDIO. Inspect every route, tune the central field, launch modules, and watch the system respond without leaving the control room.</p>
+      <div class="core-hero-cta"><a class="ball-arrow huge magnetic" href="contact.html" data-cursor="SEND"><span>INITIALIZE A BUILD</span><b><i></i></b></a></div>
+    </div>
+    <div class="core-reactor-wrap">
+      <div class="reactor-head"><span>CORE REACTOR</span><b id="reactor-mode">BALANCED</b></div>
+      <canvas id="core-reactor" data-cursor="DRAG" aria-label="Animated CORE reactor visualization"></canvas>
+      <div class="reactor-readouts"><span>POWER <b id="power-readout">72%</b></span><span>LOAD <b id="load-readout">31%</b></span><span>SYNC <b id="sync-readout">99.2%</b></span></div>
+      <div class="reactor-crosshair" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="core-metrics"><div><span>UPTIME</span><b id="uptime">00:00:00</b></div><div><span>ACTIVE ROUTES</span><b id="route-count">08</b></div><div><span>EVENTS / SEC</span><b id="event-rate">18.4</b></div><div><span>CORE TEMP</span><b id="temp">42.8°</b></div><div><span>BUS STATE</span><b class="good">NOMINAL</b></div></div>
+</section>
+
+<section class="core-map-section">
+  <div class="section-lead"><span>01 / SYSTEM MAP</span><h2>ONE SYSTEM.<br><em>MANY ROUTES.</em></h2><p>Every major page is treated as a module. The map below is live: routes pulse when traffic moves, and the central node broadcasts the current state.</p></div>
+  <div class="system-map">
+    <canvas id="map-canvas" data-cursor="DRAG" aria-hidden="true"></canvas>
+    <div class="map-center"><span>CORE</span><b>ONLINE</b></div>
+    <a class="map-node home" href="../index.html" data-cursor="OPEN"><b>HOME</b><small>ENTRY</small></a>
+    <a class="map-node about" href="about.html" data-cursor="OPEN"><b>ABOUT</b><small>METHOD</small></a>
+    <a class="map-node work" href="work.html" data-cursor="ENTER"><b>WORK</b><small>CASES</small></a>
+    <a class="map-node lab" href="lab.html" data-cursor="LAB"><b>LAB</b><small>EXPERIMENTS</small></a>
+    <a class="map-node void" href="void.html" data-cursor="VOID"><b>VOID</b><small>GRAVITY</small></a>
+    <a class="map-node obs" href="observatory.html" data-cursor="ORBIT"><b>OBSERVATORY</b><small>FIELD</small></a>
+    <a class="map-node services" href="services.html" data-cursor="OPEN"><b>SERVICES</b><small>CAPABILITIES</small></a>
+    <a class="map-node contact" href="contact.html" data-cursor="SEND"><b>CONTACT</b><small>CHANNEL</small></a>
+  </div>
+</section>
+
+<section class="core-preview-section">
+  <div class="section-lead preview-lead"><span>02 / ROUTE WINDOWS</span><h2>THE SITE,<br><em>RUNNING INSIDE.</em></h2><p>These are not screenshots. Each card is a miniature JavaScript interpretation of the real route. Hover to wake the interface; click anywhere to open it.</p></div>
+  <div class="route-grid">
+    <a class="route-card" href="../index.html" data-route="home"><div class="route-canvas"><canvas></canvas><span class="route-state">LIVE / ENTRY</span><span class="open-ball">OPEN PAGE <b>↗</b></span></div><div class="route-info"><span>ROUTE A</span><h3>HOME</h3><p>Brand field / kinetic entry</p></div></a>
+    <a class="route-card" href="about.html" data-route="about"><div class="route-canvas"><canvas></canvas><span class="route-state">LIVE / METHOD</span><span class="open-ball">OPEN PAGE <b>↗</b></span></div><div class="route-info"><span>ROUTE B</span><h3>ABOUT</h3><p>Principles / process / thinking</p></div></a>
+    <a class="route-card" href="work.html" data-route="work"><div class="route-canvas"><canvas></canvas><span class="route-state">LIVE / CASES</span><span class="open-ball">OPEN PAGE <b>↗</b></span></div><div class="route-info"><span>ROUTE C</span><h3>WORK</h3><p>Project engines / case systems</p></div></a>
+    <a class="route-card" href="lab.html" data-route="lab"><div class="route-canvas"><canvas></canvas><span class="route-state">LIVE / EXPERIMENTS</span><span class="open-ball">OPEN PAGE <b>↗</b></span></div><div class="route-info"><span>ROUTE D</span><h3>LAB</h3><p>Tests / instruments / prototypes</p></div></a>
+    <a class="route-card" href="void.html" data-route="void"><div class="route-canvas"><canvas></canvas><span class="route-state">LIVE / GRAVITY</span><span class="open-ball">OPEN PAGE <b>↗</b></span></div><div class="route-info"><span>ROUTE E</span><h3>VOID</h3><p>Gravity / physics / spatial interaction</p></div></a>
+    <a class="route-card" href="observatory.html" data-route="observatory"><div class="route-canvas"><canvas></canvas><span class="route-state">LIVE / FIELD</span><span class="open-ball">OPEN PAGE <b>↗</b></span></div><div class="route-info"><span>ROUTE F</span><h3>OBSERVATORY</h3><p>Planetarium / orbital instruments</p></div></a>
+    <a class="route-card" href="services.html" data-route="services"><div class="route-canvas"><canvas></canvas><span class="route-state">LIVE / CAPABILITIES</span><span class="open-ball">OPEN PAGE <b>↗</b></span></div><div class="route-info"><span>ROUTE G</span><h3>SERVICES</h3><p>Strategy / design / engineering</p></div></a>
+    <a class="route-card" href="contact.html" data-route="contact"><div class="route-canvas"><canvas></canvas><span class="route-state">LIVE / CHANNEL</span><span class="open-ball">OPEN PAGE <b>↗</b></span></div><div class="route-info"><span>ROUTE H</span><h3>CONTACT</h3><p>New system / transmission / brief</p></div></a>
+  </div>
+</section>
+
+<section class="core-instrument-section">
+  <div class="section-lead"><span>03 / INSTRUMENT PANEL</span><h2>TUNE THE<br><em>BEHAVIOUR.</em></h2><p>Controls are intentionally real. Changing the signal alters the reactor, telemetry and route activity immediately.</p></div>
+  <div class="instrument-grid">
+    <div class="instrument-card controls"><div class="instrument-head"><span>FIELD CONTROL</span><b id="control-state">ADAPTIVE</b></div>
+      <label>ENERGY <output id="energy-out">72%</output><input id="energy" type="range" min="0" max="100" value="72"></label>
+      <label>DENSITY <output id="density-out">48%</output><input id="density" type="range" min="0" max="100" value="48"></label>
+      <label>RESPONSE <output id="response-out">64%</output><input id="response" type="range" min="0" max="100" value="64"></label>
+      <div class="switch-row"><span>ADAPTIVE BUS</span><button id="adaptive" class="switch active" aria-pressed="true"><i></i></button></div>
+      <div class="control-buttons"><button id="pulse">PULSE BUS</button><button id="reset">RESET</button></div>
+    </div>
+    <div class="instrument-card telemetry"><div class="instrument-head"><span>TELEMETRY</span><b id="telemetry-state">STREAMING</b></div><canvas id="telemetry" data-cursor="DRAG"></canvas><div class="telemetry-values"><span>PEAK <b id="peak">84%</b></span><span>AVG <b id="avg">52%</b></span><span>DRIFT <b id="drift">0.04</b></span></div></div>
+    <div class="instrument-card console"><div class="instrument-head"><span>COMMAND CONSOLE</span><b>CORE.SHELL</b></div><div id="console-output" class="console-output"><div><i>CORE</i> bus connected. Type <b>HELP</b>.</div></div><form id="console-form"><span>›</span><input id="console-input" autocomplete="off" spellcheck="false" placeholder="ENTER COMMAND"><button>EXEC</button></form><div class="console-shortcuts"><button data-cmd="STATUS">STATUS</button><button data-cmd="ROUTES">ROUTES</button><button data-cmd="PULSE">PULSE</button><button data-cmd="HELP">HELP</button><button data-cmd="CLEAR">CLEAR</button></div></div>
+  </div>
+</section>
+
+<section class="core-log-section">
+  <div class="section-lead"><span>04 / SYSTEM JOURNAL</span><h2>WHAT THE<br><em>CORE SEES.</em></h2></div>
+  <div class="journal"><div class="journal-head"><span>TIMESTAMP</span><span>CHANNEL</span><span>EVENT</span><span>STATE</span></div><div id="journal-body"></div></div>
+</section>
+</main>
+<footer class="site-footer"><div class="footer-main"><a class="footer-mark magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span></a><div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div><p class="footer-sub">RAY/STUDIO / DIGITAL SYSTEMS / INTERFACES / EXPERIMENTS. A private build for ideas that need motion, logic and a little friction.</p><a class="footer-command-link magnetic" href="contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a></div></footer>
+<script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script><script src="../assets/js/core-engine-new.js"></script>
+</body></html>

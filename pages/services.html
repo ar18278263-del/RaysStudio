@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505"><meta name="description" content="RAY/STUDIO services — strategy, design, motion and engineering built as one responsive system.">
+<title>RAY/STUDIO — SERVICES</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/services-new.css">
+</head>
+<body class="services-new-page">
+<canvas id="system-canvas" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
+<div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true">SERVICE</div>
+<header class="site-header">
+  <a class="brand magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+  <nav id="main-nav" aria-hidden="true">
+    <a class="nav-link magnetic" href="../index.html" data-cursor="OPEN">HOME</a><div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
+    <a class="nav-link magnetic" href="about.html" data-cursor="OPEN">ABOUT</a><a class="nav-link magnetic" href="work.html" data-cursor="OPEN">WORK</a><a class="nav-link magnetic active" href="services.html" data-cursor="OPEN" aria-current="page">SERVICES</a><a class="nav-link magnetic" href="contact.html" data-cursor="SEND">CONTACT</a><a class="nav-link magnetic" href="lab.html" data-cursor="LAB">LAB</a><a class="nav-link magnetic" href="void.html" data-cursor="VOID">VOID</a><a class="nav-link magnetic" href="observatory.html" data-cursor="ORBIT">OBSERVATORY</a><a class="nav-link magnetic" href="core.html" data-cursor="CORE">CORE</a>
+  </nav><button class="menu-toggle magnetic" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+</header>
+<main>
+<section class="svc-hero">
+  <div class="svc-hero-meta"><span>04 / SERVICES</span><span>RAY/STUDIO / CAPABILITY INDEX</span></div>
+  <div class="svc-hero-grid">
+    <div><h1>BUILD<br><i>THE</i><br>SIGNAL</h1><p>Strategy, design, motion and engineering are not separate departments here. They are four states of the same build.</p></div>
+    <div class="svc-orbit-panel"><canvas id="service-orbit" aria-label="Interactive service orbit"></canvas><div class="svc-orbit-label"><span>CAPABILITY FIELD</span><b id="orbit-readout">01 / STRATEGY</b></div><div class="svc-orbit-center">RAY<br><small>BUILD BUS</small></div></div>
+  </div>
+  <div class="svc-hero-foot"><span>SCROLL TO SELECT A STATE</span><b>01 — 04</b></div>
+</section>
+
+<section class="svc-matrix section-pad">
+  <div class="svc-section-head"><span>01 / CAPABILITY MATRIX</span><h2>FOUR MODES<br><i>ONE SYSTEM</i></h2><p>Pick a mode. The specification, outputs and live signal change instantly. No package tiers, no filler.</p></div>
+  <div class="svc-matrix-layout">
+    <div class="svc-tabs" role="tablist" aria-label="Services">
+      <button class="svc-tab active" data-service="strategy" role="tab" aria-selected="true"><span>01</span><b>STRATEGY</b><small>DEFINE / REDUCE</small></button>
+      <button class="svc-tab" data-service="design" role="tab" aria-selected="false"><span>02</span><b>DESIGN</b><small>SHAPE / DIRECT</small></button>
+      <button class="svc-tab" data-service="motion" role="tab" aria-selected="false"><span>03</span><b>MOTION</b><small>TIME / RESPONSE</small></button>
+      <button class="svc-tab" data-service="build" role="tab" aria-selected="false"><span>04</span><b>BUILD</b><small>CODE / DEPLOY</small></button>
+    </div>
+    <article class="svc-spec" id="svc-spec">
+      <div class="svc-spec-top"><span id="svc-code">SERVICE // STRATEGY</span><b id="svc-signal">SIGNAL 084</b></div>
+      <h3 id="svc-title">FIND THE SIGNAL</h3><p id="svc-desc">Positioning, architecture and a clear interaction model before pixels start moving.</p>
+      <div class="svc-deliverables"><span>OUTPUT</span><strong id="svc-output">Research / Sitemap / Direction / Prototype</strong></div>
+      <div class="svc-tools"><span id="svc-tool-a">DISCOVERY</span><span id="svc-tool-b">ARCHITECTURE</span><span id="svc-tool-c">DECISION SYSTEM</span></div>
+      <div class="svc-spec-bottom"><span>STATE <b id="svc-state">READY</b></span><span>MODE <b id="svc-mode">ADAPTIVE</b></span><span>LOAD <b id="svc-load">28%</b></span></div>
+    </article>
+  </div>
+</section>
+
+<section class="svc-lab section-pad">
+  <div class="svc-section-head"><span>02 / BUILD CONFIGURATOR</span><h2>DESIGN YOUR<br><i>BUILD</i></h2><p>Turn capabilities on and off. The system calculates the shape of the engagement in real time.</p></div>
+  <div class="svc-config">
+    <div class="svc-config-options">
+      <label class="svc-option active"><input type="checkbox" value="strategy" checked><span>01</span><b>STRATEGY</b><small>Direction / architecture</small></label>
+      <label class="svc-option active"><input type="checkbox" value="design" checked><span>02</span><b>DESIGN</b><small>Interface / identity</small></label>
+      <label class="svc-option"><input type="checkbox" value="motion"><span>03</span><b>MOTION</b><small>Transitions / systems</small></label>
+      <label class="svc-option"><input type="checkbox" value="build"><span>04</span><b>BUILD</b><small>Frontend / WebGL</small></label>
+    </div>
+    <div class="svc-config-readout"><div class="config-number"><span>BUILD INDEX</span><strong id="build-index">02</strong></div><div class="config-bar"><i id="build-bar"></i></div><div class="config-meta"><span>COMPLEXITY <b id="complexity">MEDIUM</b></span><span>FOCUS <b id="focus">FOUNDATION</b></span></div><p id="config-copy">A focused system: clear strategy plus a sharp visual language, ready to move into production.</p><a class="ball-arrow magnetic" href="contact.html" data-cursor="BRIEF"><span>START A BUILD</span><b><i></i></b></a></div>
+  </div>
+</section>
+
+<section class="svc-process section-pad">
+  <div class="svc-section-head"><span>03 / OPERATING MODEL</span><h2>NO HANDOFF<br><i>GAPS</i></h2></div>
+  <div class="svc-process-grid"><div><span>01</span><h3>FRAME</h3><p>Question the brief, define the constraint, decide what deserves to exist.</p></div><div><span>02</span><h3>SHAPE</h3><p>Build the visual grammar and interaction rules before polishing details.</p></div><div><span>03</span><h3>RESPOND</h3><p>Prototype motion, feedback and edge states until the system feels alive.</p></div><div><span>04</span><h3>SHIP</h3><p>Engineer the final surface, test it, tune it, then release the thing.</p></div></div>
+</section>
+
+<section class="svc-close section-pad"><span>04 / NEXT SIGNAL</span><h2>BRING THE<br><i>WEIRD BRIEF</i></h2><p>Good projects usually start with a problem that doesn't fit neatly into a service list.</p><a class="ball-arrow huge magnetic" href="contact.html" data-cursor="SEND"><span>INITIALIZE CONTACT</span><b><i></i></b></a></section>
+</main>
+<footer class="site-footer"><div class="footer-main"><a class="footer-mark magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a><div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div><p class="footer-sub">RAY/STUDIO / DIGITAL SYSTEMS / INTERFACES / EXPERIMENTS. A private build for ideas that need motion, logic and a little friction.</p><a class="footer-command-link magnetic" href="contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a></div><div class="footer-grid"><div class="footer-column"><span class="footer-label">NAVIGATION</span><a class="magnetic" href="../index.html">01 / HOME</a><a class="magnetic" href="about.html">02 / ABOUT</a><a class="magnetic" href="work.html">03 / WORK</a><a class="magnetic" href="services.html">04 / SERVICES</a><a class="magnetic" href="contact.html">05 / CONTACT</a><a class="magnetic" href="lab.html">06 / LAB</a><a class="magnetic" href="void.html">07 / VOID</a></div><div class="footer-column"><span class="footer-label">SYSTEM</span><span class="footer-live"><i></i> CORE ONLINE / 144 FPS</span><a href="observatory.html">OBSERVATORY ↗</a><span class="footer-label" style="margin-top:18px">CHANNEL</span><span class="footer-live">LOCAL / PRIVATE BUILD</span><span class="footer-live">INTERACTION / LINKED</span></div></div><div class="footer-bottom"><span>RAY/STUDIO © 2026</span><span>NO TEMPLATE / NO STATIC RULE</span><span>PX <b class="pointer-readout">000 / 000</b></span></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script><script src="../assets/js/services-new.js"></script>
+</body></html>
