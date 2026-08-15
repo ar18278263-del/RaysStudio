@@ -5,30 +5,6 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const ball=document.querySelector('.cursor-ball');
 const label=document.querySelector('.cursor-label');
 
-const loadScript=src=>new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.appendChild(s)});
-const loadStyle=href=>{if(document.querySelector(`link[href="${href}"]`))return;const l=document.createElement('link');l.rel='stylesheet';l.href=href;document.head.appendChild(l)};
-const bootEditor=async()=>{
- if(!document.querySelector('#ray-editor'))return;
- loadStyle('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/codemirror.min.css');
- loadStyle('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/theme/material-darker.min.css');
- loadStyle('assets/css/codemirror-ray.css');
- try{
-  if(!window.CodeMirror)await loadScript('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/codemirror.min.js');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/mode/javascript/javascript.min.js');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/mode/css/css.min.js');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/mode/xml/xml.min.js');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/mode/htmlmixed/htmlmixed.min.js');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/addon/edit/closebrackets.min.js');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/addon/edit/matchbrackets.min.js');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.20/addon/selection/active-line.min.js');
-  await loadScript('assets/js/codemirror-editor.js');
- }catch(error){
-  document.querySelector('#editor-status')?.replaceChildren(document.createTextNode('LOCAL EDITOR'));
-  document.querySelector('#editor-message')?.replaceChildren(document.createTextNode('CODEMIRROR UNAVAILABLE / TEXT MODE'));
- }
-};
-if(document.readyState==='loading')addEventListener('DOMContentLoaded',bootEditor,{once:true});else setTimeout(bootEditor,0);
-
 if(coarse||!ball)return;
 const core=window.RayCore;
 const state={x:innerWidth/2,y:innerHeight/2,tx:innerWidth/2,ty:innerHeight/2,px:innerWidth/2,py:innerHeight/2,vx:0,vy:0,speed:0,mode:'normal',label:''};
@@ -60,5 +36,4 @@ addEventListener('pointerdown',()=>document.body.classList.add('cursor-down'),{p
 function makeTrail(x,y,vx,vy){if(reduce)return;const now=performance.now();if(now-lastTrail<16||state.speed<3.2)return;lastTrail=now;const dot=document.createElement('i');dot.className='cursor-comet';const size=Math.min(9,2+state.speed*.2),angle=Math.atan2(vy,vx),stretch=Math.min(4,1+state.speed*.18);dot.style.width=`${size*stretch}px`;dot.style.height=`${Math.max(1.4,size*.42)}px`;dot.style.left=`${x}px`;dot.style.top=`${y}px`;dot.style.transform=`translate(-50%,-50%) rotate(${angle}rad)`;document.body.appendChild(dot);requestAnimationFrame(()=>dot.classList.add('fade'));setTimeout(()=>dot.remove(),460)}
 const loop=()=>{state.px=state.x;state.py=state.y;state.x+=(state.tx-state.x)*.22;state.y+=(state.ty-state.y)*.22;state.vx=state.x-state.px;state.vy=state.y-state.py;state.speed=Math.hypot(state.vx,state.vy);const capped=Math.min(28,state.speed),stretch=1+Math.min(.42,capped*.021),squash=1/Math.sqrt(stretch),angle=state.speed>.05?Math.atan2(state.vy,state.vx):0;ball.style.transform=`translate3d(${state.x}px,${state.y}px,0) translate(-50%,-50%) rotate(${angle}rad) scale(${stretch},${squash})`;if(label)label.style.transform=`translate3d(${state.x+18}px,${state.y+18}px,0)`;if(state.speed>3)makeTrail(state.x,state.y,state.vx,state.vy);core?.setPointer({x:state.x,y:state.y,vx:state.vx,vy:state.vy,speed:state.speed});requestAnimationFrame(loop)};
 loop();
-document.querySelectorAll('[data-ray-glitch]').forEach(el=>el.removeAttribute('data-ray-glitch'));
 })();
