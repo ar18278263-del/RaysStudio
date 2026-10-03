@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="stylesheet" href="../assets/css/about-new.css">
 <link rel="stylesheet" href="../assets/css/sections/header.css">
+<link rel="stylesheet" href="../assets/css/sections/site-polish.css">
+<link rel="stylesheet" href="../assets/css/sections/loading.css">
 </head>
 <body>
 <canvas id="system-canvas" aria-hidden="true"></canvas>
@@ -19,10 +21,10 @@
 <div class="cursor-ball" aria-hidden="true"><span></span></div>
 <div class="cursor-label" aria-hidden="true">VIEW</div>
 
-<div class="boot" id="boot">
+<div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading RAY/STUDIO">
   <div class="boot-mark">RAY<span>/</span></div>
   <div class="boot-track"><i></i></div>
-  <div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>00%</b></div>
+  <div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>LOADING</b></div>
 </div>
 
 <header class="site-header">
