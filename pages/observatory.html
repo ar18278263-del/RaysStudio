@@ -5,10 +5,12 @@
 <meta name="description" content="RAY/STUDIO — OBSERVATORY, an interactive solar system."><title>RAY/STUDIO — OBSERVATORY</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/css/main.css">
 <link rel="stylesheet" href="../assets/css/sections/header.css">
+<link rel="stylesheet" href="../assets/css/sections/site-polish.css">
+<link rel="stylesheet" href="../assets/css/sections/loading.css">
 </head>
 <body>
 <canvas id="system-canvas" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div><div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true">VIEW</div>
-<div class="boot" id="boot"><div class="boot-mark">RAY<span>/</span></div><div class="boot-track"><i></i></div><div class="boot-meta"><span>CALIBRATING OBSERVATORY</span><b>00%</b></div></div>
+<div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading RAY/STUDIO"><div class="boot-mark">RAY<span>/</span></div><div class="boot-track"><i></i></div><div class="boot-meta"><span>CALIBRATING OBSERVATORY</span><b>LOADING</b></div></div>
 <header class="site-header">
   <a class="brand magnetic" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
   <nav id="main-nav" aria-hidden="true">
