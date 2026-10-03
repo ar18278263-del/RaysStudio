@@ -1,0 +1,90 @@
+/* Shared site polish
+   Small system-wide refinements that preserve each page's existing layout. */
+:root {
+  --muted: #929292;
+  --faint: #414141;
+  --line: #292929;
+  --site-text-muted: #a0a0a0;
+  --site-text-subtle: #858585;
+  --site-panel: #0b0b0b;
+}
+html { scroll-padding-top: 104px; }
+main p {
+  color: var(--site-text-muted) !important;
+  font-size: clamp(15px, .98vw, 16px) !important;
+  line-height: 1.7;
+}
+#main-nav .nav-link {
+  color: #a5a5a5;
+  font-size: 9px !important;
+  height: 44px;
+  min-height: 44px;
+}
+#main-nav .nav-link:hover,
+#main-nav .nav-link.active { color: #f4f4f4; }
+.header-clock { color: #858585; }
+.header-clock small { color: #777; font-size: 8px; }
+.core-new-page .site-header {
+  z-index: 1000;
+  background: rgba(7, 7, 7, .76);
+  -webkit-backdrop-filter: blur(18px) saturate(.85);
+  backdrop-filter: blur(18px) saturate(.85);
+}
+:is(.section-index, .eyebrow, .footer-label, .footer-live, .footer-bottom,
+    .obs-hud, .orbit-hud, .svc-hero-meta, .svc-hero-foot) {
+  color: #888 !important;
+}
+.site-footer .footer-sub {
+  color: #999 !important;
+  font: 12px/1.7 var(--mono);
+}
+.site-footer .footer-label,
+.site-footer .footer-live,
+.site-footer .footer-bottom {
+  font-size: 9px;
+}
+.site-footer .footer-column a { font-size: 12px; }
+.contact-form label span { color: #8c8c8c; font-size: 10px; }
+.contact-form input,
+.contact-form select,
+.contact-form textarea { font-size: 15px; }
+.obs-mode small,
+.observatory-stats span { color: #888; font-size: 9px; }
+.obs-mode span { color: #999; font-size: 9px; }
+.obs-mode:focus-visible,
+#obs-pulse:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #f2f2f2;
+  outline-offset: 4px;
+}
+@media (max-width: 1180px) and (min-width: 921px) {
+  #main-nav .nav-link { font-size: 9px !important; padding: 0 7px; }
+}
+@media (max-width: 920px) and (min-width: 901px) {
+  #main-nav .nav-link { height: 44px; font-size: 10px !important; }
+}
+@media (max-width: 900px) {
+  .site-header { z-index: 10050; }
+  #main-nav .nav-link { font-size: 17px !important; }
+  .menu-toggle {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    flex-basis: 44px !important;
+  }
+}
+@media (max-width: 560px) {
+  main p { font-size: 15px !important; }
+  .site-footer .footer-sub { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header::after,
+  .brand::before,
+  .header-clock i,
+  .site-header .nav-link::before,
+  .footer-live i { animation: none !important; transition: none !important; }
+}
