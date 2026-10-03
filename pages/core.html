@@ -57,7 +57,7 @@
 </section>
 
 <section class="core-instrument-section">
-  <div class="section-lead"><span>03 / INSTRUMENT PANEL</span><h2>TUNE THE<br><em>BEHAVIOUR.</em></h2><p>Adjust the simulated field to change the reactor and signal trace.</p></div>
+  <div class="section-lead"><span>02 / INSTRUMENT PANEL</span><h2>TUNE THE<br><em>BEHAVIOUR.</em></h2><p>Adjust the simulated field to change the reactor response.</p></div>
   <div class="instrument-grid">
     <div class="instrument-card controls"><div class="instrument-head"><span>FIELD CONTROL</span><b id="control-state">ADAPTIVE</b></div>
       <label>ENERGY <output id="energy-out">72%</output><input id="energy" type="range" min="0" max="100" value="72"></label>
@@ -66,7 +66,7 @@
       <div class="switch-row"><span>ADAPTIVE BUS</span><button id="adaptive" class="switch active" aria-label="Adaptive bus" aria-pressed="true"><i></i></button></div>
       <div class="control-buttons"><button id="pulse">PULSE BUS</button><button id="reset">RESET</button></div>
     </div>
-    <div class="instrument-card telemetry"><div class="instrument-head"><span>SIMULATED TRACE</span><b id="telemetry-state">RUNNING</b></div><canvas id="telemetry" data-cursor="DRAG"></canvas><div class="telemetry-values"><span>PEAK <b id="peak">--</b></span><span>AVG <b id="avg">--</b></span><span>DRIFT <b id="drift">--</b></span></div></div>
+    <div class="instrument-card telemetry"><div class="instrument-head"><span>SIMULATED TRACE</span><b id="telemetry-state">RUNNING</b></div><canvas id="telemetry" role="img" aria-label="Simulated signal trace driven by the field controls"></canvas></div>
     <div class="instrument-card console"><div class="instrument-head"><span>COMMAND CONSOLE</span><b>CORE.SHELL</b></div><div id="console-output" class="console-output"><div><i>SIMULATION</i> ready. Type <b>HELP</b>.</div></div><form id="console-form"><span>›</span><input id="console-input" autocomplete="off" spellcheck="false" placeholder="ENTER COMMAND"><button>EXEC</button></form><div class="console-shortcuts"><button data-cmd="STATUS">STATUS</button><button data-cmd="ROUTES">ROUTES</button><button data-cmd="PULSE">PULSE</button><button data-cmd="HELP">HELP</button><button data-cmd="CLEAR">CLEAR</button></div></div>
   </div>
 </section>
