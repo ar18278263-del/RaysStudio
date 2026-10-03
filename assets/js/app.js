@@ -1,11 +1,10 @@
 (()=>{"use strict";
 const $=(s,p=document)=>p.querySelector(s),$$=(s,p=document)=>[...p.querySelectorAll(s)];
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const pointer={x:innerWidth/2,y:innerHeight/2,px:innerWidth/2,py:innerHeight/2};
-const cursor={x:pointer.x,y:pointer.y};
+const pointer={x:innerWidth/2,y:innerHeight/2};
 const ready=fn=>document.readyState==="loading"?addEventListener("DOMContentLoaded",fn):fn();
 ready(()=>{
- boot();clock();canvas();nav();pageTransitions();smooth();split();reveal();signal();services();contactForm();activeNav();spotlights();codeEditor();visualSystems();systemMap();
+ boot();clock();trackPointer();canvas();nav();pageTransitions();smooth();split();reveal();signal();services();contactForm();activeNav();spotlights();codeEditor();visualSystems();systemMap();
 });
 function boot(){
  const overlay=$("#boot");
@@ -14,11 +13,10 @@ function boot(){
  const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
  const started=performance.now();
  const minVisible=reduced?180:420;
- let complete=false,fallback=0;
+ let complete=false;
  const hide=()=>{
   if(complete)return;
   complete=true;
-  clearTimeout(fallback);
   const delay=Math.max(0,minVisible-(performance.now()-started));
   setTimeout(()=>{
    if(state)state.textContent="READY";
@@ -31,12 +29,17 @@ function boot(){
    },reduced?0:120);
   },delay);
  };
- fallback=setTimeout(hide,4500);
- if(document.readyState==="complete")hide();
- else addEventListener("load",hide,{once:true});
+ if(document.readyState==="loading")addEventListener("DOMContentLoaded",hide,{once:true});
+ else hide();
 }
 function clock(){const els=$$(".clock");if(!els.length)return;const f=()=>{const d=new Date(),h=d.getHours(),ampm=h>=12?"PM":"AM",hh=h%12||12,v=`${String(hh).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}:${String(d.getSeconds()).padStart(2,"0")} ${ampm}`;els.forEach(e=>e.textContent=v)};f();setInterval(f,1000)}
-function cursorFX(){if(matchMedia("(pointer:coarse)").matches)return;addEventListener("pointermove",e=>{pointer.x=e.clientX;pointer.y=e.clientY;$$(".pointer-readout").forEach(x=>x.textContent=`PX ${String(Math.round(e.clientX)).padStart(3,"0")} / PY ${String(Math.round(e.clientY)).padStart(3,"0")}`)});const ball=$(".cursor-ball"),lab=$(".cursor-label");$$("[data-cursor]").forEach(el=>{el.addEventListener("mouseenter",()=>{document.body.classList.add("cursor-hover");if(lab)lab.textContent=el.dataset.cursor||"VIEW"});el.addEventListener("mouseleave",()=>document.body.classList.remove("cursor-hover"))});const loop=()=>{cursor.x+=(pointer.x-cursor.x)*.22;cursor.y+=(pointer.y-cursor.y)*.22;if(ball)ball.style.transform=`translate3d(${cursor.x}px,${cursor.y}px,0) translate(-50%,-50%)`;if(lab)lab.style.transform=`translate3d(${cursor.x+15}px,${cursor.y+15}px,0)`;requestAnimationFrame(loop)};loop()}
+function trackPointer(){
+ addEventListener("pointermove",e=>{
+  pointer.x=e.clientX;pointer.y=e.clientY;
+  $$(".pointer-readout").forEach(x=>x.textContent=`PX ${String(Math.round(e.clientX)).padStart(3,"0")} / PY ${String(Math.round(e.clientY)).padStart(3,"0")}`);
+ },{passive:true});
+}
+
 function pageTransitions(){
  const overlay=document.createElement("div");
  overlay.className="ray-transition";
@@ -46,7 +49,6 @@ function pageTransitions(){
  const isLocalPage=href=>href&&!href.startsWith("#")&&!href.startsWith("mailto:")&&!href.startsWith("tel:")&&!href.startsWith("javascript:")&&!href.startsWith("http");
  const leave=(url,route)=>{
    if(overlay.classList.contains("out"))return;
-   window.dispatchEvent(new CustomEvent("ray:route-leave",{detail:{url,route}}));
    document.documentElement.dataset.transitioning="1";
    overlay.classList.add("out");
    setTimeout(()=>location.href=url,520);
@@ -65,18 +67,8 @@ function pageTransitions(){
    });
  });
 }
-function createRayCore(){
- if(window.RayCore)return window.RayCore;
- const listeners=new Map();
- const state={route:document.body.dataset.route||"unknown",pointer:{x:innerWidth/2,y:innerHeight/2,vx:0,vy:0,speed:0},cursor:"normal",motion:reduce?"reduced":"full"};
- const on=(name,fn)=>{if(!listeners.has(name))listeners.set(name,new Set());listeners.get(name).add(fn);return()=>listeners.get(name)?.delete(fn)};
- const emit=(name,detail={})=>{listeners.get(name)?.forEach(fn=>{try{fn(detail)}catch(e){}});window.dispatchEvent(new CustomEvent("ray:"+name,{detail}))};
- const setRoute=route=>{state.route=route;emit("route", {route})};
- const setCursor=(mode,label,element)=>{state.cursor=mode||"normal";emit("cursor",{mode:state.cursor,label:label||"",element})};
- const setPointer=p=>{state.pointer=Object.assign(state.pointer,p);emit("pointer",state.pointer)};
- window.RayCore={state,on,emit,setRoute,setCursor,setPointer};
- return window.RayCore;
-}
+
+
 
 function nav(){
  const t=$("#menu-toggle"),n=$("#main-nav");
@@ -95,7 +87,6 @@ function nav(){
  addEventListener("resize",()=>{if(innerWidth>900)setOpen(false)},{passive:true});
 }
 function smooth(){if(reduce||!window.Lenis)return;const l=new Lenis({duration:1.1,lerp:.09});if(window.gsap){l.on("scroll",ScrollTrigger.update);gsap.ticker.add(t=>l.raf(t*1000));gsap.ticker.lagSmoothing(0)}else{const f=t=>{l.raf(t);requestAnimationFrame(f)};requestAnimationFrame(f)}}
-function tilt(){if(matchMedia("(pointer:coarse)").matches)return;$$(".tilt").forEach(el=>el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect(),x=e.clientX/r.width-r.left/r.width-.5,y=e.clientY/r.height-r.top/r.height-.5;el.style.transform=`perspective(1000px) rotateX(${-y*4}deg) rotateY(${x*5}deg)`}));$$(".tilt").forEach(el=>el.addEventListener("pointerleave",()=>el.style.transform=""))}
 function split(){if(reduce||!window.SplitType||!window.gsap)return;$$(".split").forEach(el=>{try{const s=new SplitType(el,{types:"lines,words,chars"});gsap.from(s.chars,{yPercent:110,opacity:0,stagger:.012,duration:.7,ease:"power3.out",delay:.35})}catch(e){}})}
 function reveal(){if(reduce||!window.gsap||!window.ScrollTrigger)return;gsap.registerPlugin(ScrollTrigger);$$(".section-pad,.page-hero,.project-hero,.lab-hero").forEach(el=>gsap.fromTo(el,{opacity:.35,y:25},{opacity:1,y:0,duration:.8,scrollTrigger:{trigger:el,start:"top 88%",once:true}}))}
 function signal(){const cards=$$(".signal-card"),state=$("#signal-state"),label=$(".signal-state b"),bar=$(".signal-progress i");if(!cards.length)return;const set=c=>{cards.forEach(x=>x.classList.remove("active"));c.classList.add("active");state&&(state.textContent=c.dataset.signal);label&&(label.textContent=c.dataset.state);bar&&(bar.style.height=(Number(c.dataset.signal)/4*100)+"%")};const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(e.target)}),{rootMargin:"-35% 0px -45% 0px",threshold:.1});cards.forEach(c=>{obs.observe(c);c.addEventListener("mouseenter",()=>set(c))})}
@@ -301,38 +292,6 @@ function visualSystems(){
   host.addEventListener("pointerleave",()=>cancelAnimationFrame(raf),{once:false});
  });
 }
-function performanceManager(){
- const canvases=$$("canvas");
- if(!canvases.length)return;
- const io=new IntersectionObserver(entries=>entries.forEach(e=>{
-   e.target.dataset.inView=e.isIntersecting?"1":"0";
- }),{rootMargin:"120px 0px",threshold:0});
- canvases.forEach(c=>io.observe(c));
- addEventListener("visibilitychange",()=>{
-   document.documentElement.dataset.hidden=document.hidden?"1":"0";
-   window.dispatchEvent(new CustomEvent("ray:visibility",{detail:{hidden:document.hidden}}));
- });
-}
-function microInteractions(){
- if(reduce)return;
- const glitchTargets=$$("h1,h2,h3,.display-title,.section-title,[data-glitch]");
- glitchTargets.forEach(el=>{
-   if(!el.dataset.rayGlitch)el.dataset.rayGlitch=el.textContent.replace(/\s+/g," ").trim();
- });
- $$(".magnetic").forEach(el=>{
-   if(el.matches(".cursor-ball,.cursor-label"))return;
-   let raf=0;
-   el.addEventListener("pointermove",e=>{
-     const r=el.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/r.width,y=(e.clientY-(r.top+r.height/2))/r.height;
-     cancelAnimationFrame(raf);
-     raf=requestAnimationFrame(()=>el.style.setProperty("--mag-x",`${x*4}px`));
-     el.style.setProperty("--mag-y",`${y*4}px`);
-   },{passive:true});
-   el.addEventListener("pointerleave",()=>{
-     cancelAnimationFrame(raf);el.style.removeProperty("--mag-x");el.style.removeProperty("--mag-y");
-   },{passive:true});
- });
-}
 function systemMap(){
  const root=$("#system-map");if(!root)return;
  const status=$("#system-map-status"),route=$("#system-map-route"),nodes=$$(".map-node",root);
@@ -340,7 +299,6 @@ function systemMap(){
    nodes.forEach(n=>n.classList.toggle("active",n.dataset.system===name));
    if(status)status.textContent=`NETWORK / ${name.toUpperCase()}`;
    if(route)route.textContent=`${name.toUpperCase()} / ROUTE ACTIVE`;
-   window.RayCore?.setRoute(name);
  };
  nodes.forEach(n=>{
    n.addEventListener("mouseenter",()=>set(n.dataset.system));

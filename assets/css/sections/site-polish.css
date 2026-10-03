@@ -30,10 +30,6 @@ main p {
   -webkit-backdrop-filter: blur(18px) saturate(.85);
   backdrop-filter: blur(18px) saturate(.85);
 }
-:is(.section-index, .eyebrow, .footer-label, .footer-live, .footer-bottom,
-    .obs-hud, .orbit-hud, .svc-hero-meta, .svc-hero-foot) {
-  color: #888 !important;
-}
 .site-footer .footer-sub {
   color: #999 !important;
   font: 12px/1.7 var(--mono);

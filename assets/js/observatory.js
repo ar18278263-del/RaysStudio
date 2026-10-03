@@ -5,21 +5,21 @@ const qs = (s, p = document) => p.querySelector(s);
 const qsa = (s, p = document) => [...p.querySelectorAll(s)];
 
 const SYSTEMS = [
-  {name:"MERCURY", href:"work.html", r:.78, radius:3.0, mass:0.12, color:1, speed:1},
-  {name:"VENUS", href:"services.html", r:1.08, radius:4.0, mass:0.82, color:.82, speed:1},
-  {name:"EARTH", href:"about.html", r:1.42, radius:4.5, mass:1.0, color:.95, speed:1},
-  {name:"MARS", href:"lab.html", r:1.82, radius:3.7, mass:.16, color:.78, speed:1},
-  {name:"JUPITER", href:"void.html", r:2.55, radius:8.0, mass:18, color:.62, speed:1},
-  {name:"SATURN", href:"work.html", r:3.28, radius:7.0, mass:12, color:.55, speed:1},
-  {name:"URANUS", href:"contact.html", r:3.98, radius:5.2, mass:2.6, color:.5, speed:1},
-  {name:"NEPTUNE", href:"index.html", r:4.62, radius:5.0, mass:2.4, color:.46, speed:1}
+  {name:"MERCURY", href:"work.html", r:.78, radius:3.0, mass:0.12, color:1},
+  {name:"VENUS", href:"services.html", r:1.08, radius:4.0, mass:0.82, color:.82},
+  {name:"EARTH", href:"about.html", r:1.42, radius:4.5, mass:1.0, color:.95},
+  {name:"MARS", href:"lab.html", r:1.82, radius:3.7, mass:.16, color:.78},
+  {name:"JUPITER", href:"void.html", r:2.55, radius:8.0, mass:18, color:.62},
+  {name:"SATURN", href:"work.html", r:3.28, radius:7.0, mass:12, color:.55},
+  {name:"URANUS", href:"contact.html", r:3.98, radius:5.2, mass:2.6, color:.5},
+  {name:"NEPTUNE", href:"index.html", r:4.62, radius:5.0, mass:2.4, color:.46}
 ];
 
 const MODES = {
-  orbit: {time: .72, gravity: 1, trail: .18, star:.32, label:"ORBIT", energy:8},
-  storm: {time: 2.35, gravity: 1.05, trail: .055, star:.55, label:"STORM", energy:24},
-  drift: {time: .24, gravity: .72, trail: .25, star:.22, label:"DRIFT", energy:2},
-  void:  {time: .055, gravity: .48, trail: .5, star:.07, label:"VOID", energy:0}
+  orbit: {time: .72, gravity: 1, trail: .18, star:.32, label:"ORBIT"},
+  storm: {time: 2.35, gravity: 1.05, trail: .055, star:.55, label:"STORM"},
+  drift: {time: .24, gravity: .72, trail: .25, star:.22, label:"DRIFT"},
+  void:  {time: .055, gravity: .48, trail: .5, star:.07, label:"VOID"}
 };
 
 function initObservatory(canvas, opts = {}) {
@@ -31,8 +31,8 @@ function initObservatory(canvas, opts = {}) {
   if (!ctx) return null;
 
   let width = 1, height = 1, dpr = 1, zoom = compact ? .9 : 1;
-  let panX = 0, panY = 0, dragging = false, lastX = 0, lastY = 0;
-  let mode = "orbit", energy = 42, running = true, lastTime = performance.now();
+  let panX = 0, panY = 0, dragging = false, moved = false, startX = 0, startY = 0, lastX = 0, lastY = 0;
+  let mode = "orbit", running = true, lastTime = performance.now();
   let pulse = 0, selected = -1;
   const G = 1;
   const sunMass = 100;
@@ -123,7 +123,7 @@ function initObservatory(canvas, opts = {}) {
     ctx.fillText("RAY CORE",x,y+r+16);
   }
 
-  function drawBody(b,i,t){
+  function drawBody(b,i){
     const [x,y]=screen(b.x,b.y);
     const rr=Math.max(2, b.radius*(compact?.62:1));
     if(b.name==="SATURN"){
@@ -181,9 +181,8 @@ function initObservatory(canvas, opts = {}) {
     bodies.forEach(b=>drawOrbit(b.r));
     drawTrails();drawSun(t);bodies.forEach(drawBody);
     pulse*=.91;
-    const p=qs("#obs-particles"),en=qs("#obs-energy"),mo=qs("#obs-mode");
-    if(p)p.textContent="008";
-    if(en)en.textContent=String(Math.round(energy)).padStart(3,"0");
+    const p=qs("#obs-particles"),mo=qs("#obs-mode");
+    if(p)p.textContent=String(bodies.length).padStart(3,"0");
     if(mo)mo.textContent=MODES[mode].label;
     canvas.dataset.mode=mode;
   }
@@ -204,9 +203,8 @@ function initObservatory(canvas, opts = {}) {
       selected=-1;
       pulse=0;
     }
-    energy=Math.min(99,energy+MODES[next].energy);
     stage?.setAttribute("data-mode",mode);
-    canvas.setAttribute("aria-label",`Solar system simulation, ${MODES[next].label} mode`);
+    canvas.setAttribute("aria-label",`Solar system simulation in ${MODES[next].label} mode. Drag to pan, use the wheel to zoom, and click a planet to open its route.`);
     qsa(".obs-mode").forEach(btn=>{
       const active=btn.dataset.mode===mode;
       btn.classList.toggle("active",active);
@@ -218,20 +216,23 @@ function initObservatory(canvas, opts = {}) {
   if(interactive){
     canvas.style.touchAction="none";
     canvas.addEventListener("pointerdown",e=>{
-      dragging=true;lastX=e.clientX;lastY=e.clientY;
-      canvas.setPointerCapture?.(e.pointerId);energy=Math.min(99,energy+3);
+      if(e.button!==0)return;
+      dragging=true;moved=false;startX=lastX=e.clientX;startY=lastY=e.clientY;
+      canvas.setPointerCapture?.(e.pointerId);
     });
     canvas.addEventListener("pointermove",e=>{
       if(!dragging)return;
+      if(!moved&&Math.hypot(e.clientX-startX,e.clientY-startY)<6)return;
+      moved=true;
       panX+=e.clientX-lastX;panY+=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;
     });
     canvas.addEventListener("pointerup",e=>{dragging=false;canvas.releasePointerCapture?.(e.pointerId)});
-    canvas.addEventListener("pointercancel",()=>dragging=false);
+    canvas.addEventListener("pointercancel",()=>{dragging=false;moved=false});
     canvas.addEventListener("wheel",e=>{
       e.preventDefault();zoom=Math.max(.55,Math.min(1.8,zoom*(1-e.deltaY*.0008)));
     },{passive:false});
     canvas.addEventListener("click",e=>{
-      if(dragging)return;
+      if(moved){moved=false;return;}
       const rect=canvas.getBoundingClientRect();
       let best=-1,bestD=Infinity;
       bodies.forEach((b,i)=>{
@@ -239,15 +240,13 @@ function initObservatory(canvas, opts = {}) {
         if(d<Math.max(18,b.radius+10)&&d<bestD){best=i;bestD=d;}
       });
       if(best<0)return;
-      selected=best;energy=Math.min(99,energy+10);
+      selected=best;
       const b=bodies[best];
       b.vx*=1.16;b.vy*=1.16;
-      const bMode=qs("#obs-mode");if(bMode)bMode.textContent=b.name;
       pulse=1;
       if(b.href){
         const base=location.pathname.includes("/pages/")?"":"pages/";
         const target=new URL(base+b.href,location.href).href;
-        window.RayCore?.setRoute(b.name.toLowerCase());
         if(window.RayTransition?.go){
           setTimeout(()=>window.RayTransition.go(target,b.name.toLowerCase()),140);
         }else{
@@ -261,7 +260,7 @@ function initObservatory(canvas, opts = {}) {
     btn.setAttribute("aria-pressed",String(btn.dataset.mode===mode));
     btn.addEventListener("click",()=>setMode(btn.dataset.mode));
   });
-  qs("#obs-pulse")?.addEventListener("click",()=>{pulse=1;energy=Math.min(99,energy+18);bodies.forEach((b,i)=>{b.vx*=1+.012*(i+1);b.vy*=1+.012*(i+1)})});
+  qs("#obs-pulse")?.addEventListener("click",()=>{pulse=1;bodies.forEach((b,i)=>{b.vx*=1+.012*(i+1);b.vy*=1+.012*(i+1)})});
 
   return {setMode,bodies};
 }
