@@ -41,22 +41,25 @@ function initObservatory(canvas, opts = {}) {
     x:Math.random(), y:Math.random(), a:.15+Math.random()*.45, r:.3+Math.random()*1.1
   }));
 
-  // Distances are intentionally stylized; velocity is initialized from the
-  // circular-orbit solution v = sqrt(G*M/r), so the system is physically driven.
-  SYSTEMS.forEach((p, i) => {
-    const angle = i * .72 + .25;
-    const r = p.r;
-    const v = Math.sqrt(G * sunMass / r);
-    bodies.push({
-      ...p,
-      x:Math.cos(angle)*r,
-      y:Math.sin(angle)*r,
-      vx:-Math.sin(angle)*v,
-      vy: Math.cos(angle)*v,
-      angle,
-      trail:[]
+  // Start each mode from a predictable circular-orbit baseline.
+  function resetBodies(){
+    bodies.length=0;
+    SYSTEMS.forEach((p,i)=>{
+      const angle=i*.72+.25;
+      const r=p.r;
+      const v=Math.sqrt(G*sunMass/r);
+      bodies.push({
+        ...p,
+        x:Math.cos(angle)*r,
+        y:Math.sin(angle)*r,
+        vx:-Math.sin(angle)*v,
+        vy:Math.cos(angle)*v,
+        angle,
+        trail:[]
+      });
     });
-  });
+  }
+  resetBodies();
 
   function resize(){
     const rect = (stage || canvas).getBoundingClientRect();
@@ -148,7 +151,7 @@ function initObservatory(canvas, opts = {}) {
 
   function physics(dt){
     const cfg=MODES[mode];
-    const sub=Math.max(1,Math.ceil(dt*cfg.time*2));
+    const sub=Math.max(1,Math.ceil(dt*cfg.time/(1/120)));
     const h=dt*cfg.time/sub;
     for(let step=0;step<sub;step++){
       for(const b of bodies){
@@ -195,12 +198,21 @@ function initObservatory(canvas, opts = {}) {
 
   function setMode(next){
     if(!MODES[next])return;
-    mode=next;
+    if(next!==mode){
+      mode=next;
+      resetBodies();
+      selected=-1;
+      pulse=0;
+    }
     energy=Math.min(99,energy+MODES[next].energy);
-    bodies.forEach(b=>{b.trail.length=0});
     stage?.setAttribute("data-mode",mode);
     canvas.setAttribute("aria-label",`Solar system simulation, ${MODES[next].label} mode`);
-    qsa(".obs-mode").forEach(btn=>btn.classList.toggle("active",btn.dataset.mode===mode));
+    qsa(".obs-mode").forEach(btn=>{
+      const active=btn.dataset.mode===mode;
+      btn.classList.toggle("active",active);
+      btn.setAttribute("aria-pressed",String(active));
+    });
+    render(performance.now());
   }
 
   if(interactive){
@@ -245,7 +257,10 @@ function initObservatory(canvas, opts = {}) {
     });
   }
 
-  qsa(".obs-mode").forEach(btn=>btn.addEventListener("click",()=>setMode(btn.dataset.mode)));
+  qsa(".obs-mode").forEach(btn=>{
+    btn.setAttribute("aria-pressed",String(btn.dataset.mode===mode));
+    btn.addEventListener("click",()=>setMode(btn.dataset.mode));
+  });
   qs("#obs-pulse")?.addEventListener("click",()=>{pulse=1;energy=Math.min(99,energy+18);bodies.forEach((b,i)=>{b.vx*=1+.012*(i+1);b.vy*=1+.012*(i+1)})});
 
   return {setMode,bodies};
