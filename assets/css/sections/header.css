@@ -175,8 +175,8 @@
   background: #aaa;
   transition: transform .3s;
 }
-.site-header.menu-open .menu-toggle span:first-child { transform: translateY(3px) rotate(45deg); }
-.site-header.menu-open .menu-toggle span:last-child { transform: translateY(-3px) rotate(-45deg); }
+#menu-toggle.open span:first-child { transform: translateY(3px) rotate(45deg); }
+#menu-toggle.open span:last-child { transform: translateY(-3px) rotate(-45deg); }
 @keyframes ray-header-pulse {
   0%, 100% { opacity: .35; transform: scale(.8); }
   50% { opacity: 1; transform: scale(1.15); }
@@ -209,7 +209,7 @@
     visibility: hidden;
   }
   #main-nav .nav-link { height: 42px; }
-  .site-header.menu-open #main-nav {
+  #main-nav.open {
     opacity: 1;
     pointer-events: auto;
     transform: none;
