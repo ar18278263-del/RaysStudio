@@ -1,102 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#050505">
-<meta name="description" content="RAY/STUDIO — experimental digital systems, interfaces and interactive experiences.">
-<title>RAY/STUDIO — WORK</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505">
+<meta name="description" content="Selected interface studies from RAY/STUDIO: small systems explored through interaction, material and motion."><title>RAY/STUDIO — WORK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/main.css">
-<link rel="stylesheet" href="../assets/css/sections/header.css">
-<link rel="stylesheet" href="../assets/css/sections/site-polish.css">
-<link rel="stylesheet" href="../assets/css/sections/loading.css">
+<link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/sections/header.css"><link rel="stylesheet" href="../assets/css/sections/site-polish.css"><link rel="stylesheet" href="../assets/css/sections/loading.css"><link rel="stylesheet" href="../assets/css/experiences.css">
 </head>
-<body>
-<canvas id="system-canvas" aria-hidden="true"></canvas>
-<div class="grain" aria-hidden="true"></div>
-<div class="cursor-ball" aria-hidden="true"><span></span></div>
-<div class="cursor-label" aria-hidden="true">VIEW</div>
-
-<div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading RAY/STUDIO">
-  <div class="boot-mark">RAY<span>/</span></div>
-  <div class="boot-track"><i></i></div>
-  <div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>LOADING</b></div>
-</div>
-
+<body class="experience-page work-page">
+<canvas id="system-canvas" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
+<div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true"></div>
+<div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading RAY/STUDIO"><div class="boot-mark">RAY<span>/</span></div><div class="boot-track"><i></i></div><div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>LOADING</b></div></div>
 <header class="site-header">
-  <a class="brand" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
-  <nav id="main-nav" aria-hidden="true">
-    <a class="nav-link" href="../index.html" data-cursor="OPEN">HOME</a>
-    <div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
-    <a class="nav-link" href="../pages/about.html" data-cursor="OPEN">ABOUT</a>
-    <a class="nav-link" href="../pages/work.html" data-cursor="OPEN">WORK</a>
-    <a class="nav-link" href="../pages/services.html" data-cursor="OPEN">SERVICES</a>
-    <a class="nav-link" href="../pages/contact.html" data-cursor="SEND">CONTACT</a>
-    <a class="nav-link" href="../pages/lab.html" data-cursor="LAB">LAB</a>
-    <a class="nav-link" href="../pages/void.html" data-cursor="VOID">VOID</a>
-    <a class="nav-link" href="../pages/observatory.html" data-cursor="ORBIT">OBSERVATORY</a>
-    <a class="nav-link" href="../pages/core.html" data-cursor="CORE">CORE</a>
-  </nav>
-  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-</header>
-
+<a class="brand" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+<button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span aria-hidden="true">›</span></button>
+<nav id="main-nav" aria-label="Site navigation" aria-hidden="true">
+<a class="nav-link" href="../index.html">HOME</a><a class="nav-link" href="about.html">ABOUT</a><a class="nav-link" href="work.html">WORK</a><a class="nav-link" href="services.html">SERVICES</a><a class="nav-link" href="contact.html">CONTACT</a><a class="nav-link" href="lab.html">LAB</a><a class="nav-link" href="void.html">VOID</a><a class="nav-link" href="observatory.html">OBSERVATORY</a><a class="nav-link" href="core.html">CORE</a>
+</nav></header>
 <main class="inner-page work-page">
-<section class="page-hero work-hero">
-  <div><span class="section-index">03 / WORK ARCHIVE</span><h1 class="display-title split">SELECTED<br><i>WORK</i><br>01—08</h1></div>
-  <div class="hero-note"><span>ARCHIVE / 2026</span><p>Each project opens a dedicated case file with its own visual language.</p></div>
-</section>
-<section class="archive-grid section-pad">
-  <a class="archive-card large" href="project-nova.html" data-cursor="NOVA"><span>01 / COMMERCE</span><div class="archive-art nova local-interaction"><b>NOVA</b></div><h2>NOVA / LIVE COMMERCE</h2><p>Motion-led retail interface.</p></a>
-  <a class="archive-card" href="project-echo.html" data-cursor="ECHO"><span>02 / CULTURE</span><div class="archive-art echo local-interaction"><b>ECHO</b></div><h2>ECHO / EXHIBITION</h2><p>Digital space for sound and memory.</p></a>
-  <a class="archive-card" href="project-zero.html" data-cursor="ZERO"><span>03 / SYSTEM</span><div class="archive-art zero local-interaction"><b>ZERO</b></div><h2>ZERO / CONTROL</h2><p>Data translated into a tactile surface.</p></a>
-  <a class="archive-card" href="project-void.html" data-cursor="VOID"><span>04 / EDITORIAL</span><div class="archive-art void local-interaction"><b>VOID</b></div><h2>VOID / EDITORIAL</h2><p>Typography as navigation.</p></a>
-  <a class="archive-card" href="project-pulse.html" data-cursor="PULSE"><span>05 / MUSIC</span><div class="archive-art pulse local-interaction"><b>PULSE</b></div><h2>PULSE / LIVE IDENTITY</h2><p>Visual identity that responds to audio.</p></a>
-  <a class="archive-card" href="project-axis.html" data-cursor="AXIS"><span>06 / TOOL</span><div class="archive-art axis local-interaction"><b>AXIS</b></div><h2>AXIS / CREATIVE TOOL</h2><p>A small machine for large ideas.</p></a>
-  <a class="archive-card" href="project-luma.html" data-cursor="LUMA"><span>07 / SPATIAL</span><div class="archive-art luma local-interaction"><b>LUMA</b></div><h2>LUMA / SPATIAL IDENTITY</h2><p>Light, motion and geometry turned into a living surface.</p></a>
-  <a class="archive-card" href="project-kinetic.html" data-cursor="KINETIC"><span>08 / INTERACTION</span><div class="archive-art kinetic local-interaction"><b>KINETIC</b></div><h2>KINETIC / MOTION TOOL</h2><p>A responsive motion study built from rhythm, force and feedback.</p></a>
-</section>
-<section class="archive-footer section-pad"><p>08 PROJECTS / 08 WORLDS / 01 SYSTEM</p><a class="ball-arrow" href="contact.html" data-cursor="SEND"><span>COMMISSION A NEW ONE</span><b><i></i></b></a></section>
-</main>
-
-<footer class="site-footer">
-  <div class="footer-main">
-    <a class="footer-mark" href="../index.html" data-cursor="HOME">RAY<span>/</span></a>
-    <div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div>
-    <p class="footer-sub">RAY/STUDIO builds digital interfaces, identities and interactive systems.</p>
-    <a class="footer-command-link" href="contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a>
-  </div>
-  <div class="footer-grid">
-    <div class="footer-column">
-      <span class="footer-label">NAVIGATION</span>
-      <a class="" href="../index.html" data-cursor="OPEN">01 / HOME</a>
-      <a class="" href="about.html" data-cursor="OPEN">02 / ABOUT</a>
-      <a class="" href="work.html" data-cursor="OPEN">03 / WORK</a>
-      <a class="" href="services.html" data-cursor="OPEN">04 / SERVICES</a>
-      <a class="" href="contact.html" data-cursor="SEND">05 / CONTACT</a>
-      <a class="" href="lab.html" data-cursor="LAB">06 / LAB</a>
-      <a class="" href="void.html" data-cursor="VOID">07 / VOID</a>
-    </div>
-    <div class="footer-column">
-      <span class="footer-label">SYSTEM</span>
-      
-      <a href="observatory.html">OBSERVATORY ↗</a>
-      
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>RAY/STUDIO © 2026</span>
-    
-    <span class="pointer-readout">PX 000 / PY 000</span>
-  </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
-<script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script>
-
-</body></html>
+<section class="exp-hero"><div><span class="exp-kicker">WORK / FIELD NOTES</span><h1>IDEAS<br>MADE <em>USEFUL.</em></h1></div><p>Three independent studies in how digital things can behave. These are studio concepts: each one starts with a constraint, then tests a different kind of interface.</p></section>
+<section class="exp-section"><div class="exp-section-head"><h2>Selected studies</h2><span class="exp-index">01—03 / CONCEPTS</span></div>
+<div class="work-ledger">
+<article class="study" data-cursor="EXPLORE"><div class="study-top"><span>01 / COMMERCE</span><span>INTERFACE STUDY</span></div><div class="study-art"><i></i><i></i><i></i><b>FIELD<br>GOODS</b></div><div class="study-detail"><h3>Field Goods / objects with a point of view</h3><p>A catalogue that treats each object like a small landscape. The interface moves from broad context into material detail without making browsing feel like a funnel.</p><small>Focus / art direction · product browsing · motion restraint</small></div><div class="study-foot"><span>SCROLL / INSPECT</span><span>01</span></div></article>
+<article class="study" data-cursor="EXPLORE"><div class="study-top"><span>02 / CULTURE</span><span>LISTENING ROOM</span></div><div class="study-art"><i></i><i></i><b>AFTER<br>IMAGE</b></div><div class="study-detail"><h3>Afterimage / a place to listen</h3><p>An exhibition index for recorded sound. Time, location and contributor shape the way a visitor moves through the archive.</p><small>Focus / editorial system · sound-led navigation</small></div><div class="study-foot"><span>CONCEPT</span><span>02</span></div></article>
+<article class="study" data-cursor="EXPLORE"><div class="study-top"><span>03 / TOOL</span><span>OPEN EXPERIMENT</span></div><div class="study-art"><i></i><i></i><b>LOOP<br>OBJECT</b></div><div class="study-detail"><h3>Loop Object / a tool for noticing rhythm</h3><p>A compact browser instrument for arranging motion curves and comparing their feel before they become interface behavior.</p><small>Focus / interaction design · prototyping tools</small></div><div class="study-foot"><span>CONCEPT</span><span>03</span></div></article>
+</div></section><section class="exp-section service-note"><h2>Have a real problem<br>to put in the room?</h2><p>Tell us what the work needs to do, who it is for and what currently gets in the way. We can shape the right scale of project together. <a href="contact.html">Start a project ↗</a></p></section><footer class="experience-footer"><a href="contact.html" data-cursor="SEND">START A CONVERSATION ↗</a><span>RAY/STUDIO · INDEPENDENT DIGITAL PRACTICE</span></footer><script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script></main></body></html>

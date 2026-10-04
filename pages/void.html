@@ -1,156 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#020202">
-<meta name="description" content="RAY/STUDIO — VOID, an interactive gravity field.">
-<title>RAY/STUDIO — VOID</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505">
+<meta name="description" content="Explore an interactive Milky Way model and a timeline of the galaxy's formation."><title>RAY/STUDIO — VOID</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/main.css">
-<link rel="stylesheet" href="../assets/css/void.css">
-<link rel="stylesheet" href="../assets/css/sections/header.css">
-<link rel="stylesheet" href="../assets/css/sections/site-polish.css">
+<link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/sections/header.css"><link rel="stylesheet" href="../assets/css/sections/site-polish.css"><link rel="stylesheet" href="../assets/css/sections/loading.css"><link rel="stylesheet" href="../assets/css/experiences.css">
 </head>
-<body class="void-page">
-<canvas id="system-canvas" aria-hidden="true"></canvas>
-<div class="grain" aria-hidden="true"></div>
-<div class="cursor-ball" aria-hidden="true"><span></span></div>
-<div class="cursor-label" aria-hidden="true">VOID</div>
-
+<body class="experience-page void-page">
+<canvas id="system-canvas" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
+<div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true"></div>
+<div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading RAY/STUDIO"><div class="boot-mark">RAY<span>/</span></div><div class="boot-track"><i></i></div><div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>LOADING</b></div></div>
 <header class="site-header">
-  <a class="brand" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
-  <nav id="main-nav" aria-hidden="true">
-    <a class="nav-link" href="../index.html" data-cursor="OPEN">HOME</a>
-    <div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
-    <a class="nav-link" href="about.html" data-cursor="OPEN">ABOUT</a>
-    <a class="nav-link" href="work.html" data-cursor="OPEN">WORK</a>
-    <a class="nav-link" href="services.html" data-cursor="OPEN">SERVICES</a>
-    <a class="nav-link" href="contact.html" data-cursor="SEND">CONTACT</a>
-    <a class="nav-link" href="lab.html" data-cursor="LAB">LAB</a>
-    <a class="nav-link active" href="void.html" data-cursor="VOID" aria-current="page">VOID</a>
-    <a class="nav-link" href="observatory.html" data-cursor="ORBIT">OBSERVATORY</a>
-    <a class="nav-link" href="core.html" data-cursor="CORE">CORE</a>
-  </nav>
-  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-</header>
-
-<main class="void-shell">
-<section class="void-hero">
-  <canvas id="void-canvas" aria-label="Interactive gravity field. Move the pointer to bend the field and press to collapse it."></canvas>
-  <div class="void-grid" aria-hidden="true"></div>
-  <div class="void-vignette" aria-hidden="true"></div>
-
-  <div class="void-hero-copy">
-    <div class="void-kicker"><i></i><span>08 / VOID PROTOCOL</span><span>GRAVITY FIELD / LIVE</span></div>
-    <h1 class="void-title">
-      <span>ENTER</span>
-      <span class="outline">THE</span>
-      <span class="italic">VOID.</span>
-    </h1>
-    <p class="void-lead">There is no interface here. There is only a field. Hold to pull the field inward like a magnet. Let go and the stored tension shoots outward from the point you held.</p>
-    <div class="void-status">
-      <span>FIELD <b id="void-field-state">ACTIVE</b></span>
-      <span>PHYSICS <b>MATTER</b></span>
-      <span>RENDER <b>THREE</b></span>
-    </div>
-    <button id="void-hero-pulse" class="void-hero-action" type="button" data-cursor="PULSE">
-      <span>COLLAPSE → RELEASE</span><b>↗</b>
-    </button>
-  </div>
-
-  <div class="void-readout" aria-live="polite">
-    <div class="row"><span>PARTICLES</span><b id="void-particles">0000</b></div>
-    <div class="row"><span>ENERGY</span><b id="void-energy">034%</b></div>
-    <div class="row"><span>GRAVITY</span><b id="void-gravity">1.2</b></div>
-    <div class="row"><span>STATE</span><b>UNSTABLE</b></div>
-  </div>
-
-  <div class="void-instruction"><strong>MOVE / ATTRACT / PRESS</strong>THE FIELD RESPONDS TO YOU</div>
-  <div class="void-scroll">SCROLL TO DESCEND ↓</div>
-</section>
-
-<section class="void-section void-section-grid">
-  <div class="void-copy-panel void-reveal">
-    <span class="void-index">01 / EVENT HORIZON</span>
-    <h2>NOTHING<br><em>STAYS</em><br>STILL.</h2>
-    <p>Every particle is part of the same system. Your pointer becomes a gravity well. Distance becomes tension. A click becomes an event.</p>
-    <div class="void-steps">
-      <div class="void-step"><b>01</b><span>MOVE THROUGH THE FIELD</span><span>ATTRACT</span></div>
-      <div class="void-step"><b>02</b><span>PRESS INTO THE CORE</span><span>COLLAPSE</span></div>
-      <div class="void-step"><b>03</b><span>RELEASE THE SYSTEM</span><span>REBOUND</span></div>
-    </div>
-  </div>
-  <div class="void-stage">
-    <div class="void-stage-label">LIVE INSTRUMENT / <b>EVENT HORIZON</b></div>
-    <canvas id="void-mini-canvas" aria-hidden="true"></canvas>
-    <div class="void-stage-center"><span>FIELD RESPONSE</span><strong id="mini-field-state">01 / LISTENING</strong></div>
-  </div>
-</section>
-
-<section class="void-section void-experiment">
-  <div class="experiment-canvas">
-    <canvas id="matter-canvas" aria-label="Interactive Matter.js physics room. Five floating bodies can be hit and pushed by your pointer or touch. Hold anywhere to continuously release local repulsion."></canvas>
-    <div class="void-stage-label">MATTER ENGINE / <b>LOCAL SIMULATION</b></div>
-  </div>
-  <div class="experiment-copy void-reveal">
-    <span class="void-index">02 / PHYSICS ROOM</span>
-    <h3>BUILD<br><span>PRESSURE.</span></h3>
-    <p>Zero gravity. Local pressure. Five bodies float through a contained physics field. Strike one and it inherits your movement. Hold anywhere to keep releasing local pressure. Every object is physically constrained inside the canvas.</p>
-    <div class="void-controls">
-      <button id="matter-reset" class="void-btn" data-cursor="RESET">RESET FIELD</button>
-      <button id="void-pulse" class="void-btn" data-cursor="PULSE">PULSE FIELD</button>
-      <button id="void-collapse" class="void-btn" data-cursor="PRESSURE">PRESSURE</button>
-    </div>
-  </div>
-</section>
-
-<section class="void-section">
-  <div class="void-metric-grid">
-    <div class="void-metric"><small>01 / PARTICLES</small><strong id="metric-particles">1,050</strong></div>
-    <div class="void-metric"><small>02 / PHYSICS</small><strong>2D → 3D</strong></div>
-    <div class="void-metric"><small>03 / RESPONSE</small><strong>REALTIME</strong></div>
-  </div>
-</section>
-
-<section class="void-final">
-  <div class="void-final-copy void-reveal">
-    <span>YOU FOUND THE EDGE.</span>
-    <h2>NOW<br><i>BREAK IT.</i></h2>
-    <a class="" href="contact.html" data-cursor="SEND"><span>START A REAL SYSTEM</span><b class="void-final-dot">↗</b></a>
-  </div>
-</section>
-</main>
-
-<footer class="site-footer">
-  <div class="footer-main">
-    <a class="footer-mark" href="../index.html" data-cursor="HOME">RAY<span>/</span><span>STUDIO</span></a>
-    <div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div>
-    <p class="footer-sub">RAY/STUDIO builds digital interfaces, identities and interactive systems.</p>
-    <a class="footer-command-link" href="contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a>
-  </div>
-  <div class="footer-grid">
-    <div class="footer-column">
-      <span class="footer-label">NAVIGATION</span>
-      <a href="../index.html">01 / HOME</a><a href="about.html">02 / ABOUT</a><a href="work.html">03 / WORK</a><a href="services.html">04 / SERVICES</a><a href="contact.html">05 / CONTACT</a><a href="lab.html">06 / LAB</a><a href="void.html">07 / VOID</a>
-    </div>
-    <div class="footer-column">
-      <span class="footer-label">SYSTEM</span><span class="footer-live"><i></i> VOID / PHYSICS FIELD</span><a href="observatory.html">OBSERVATORY ↗</a><a href="core.html">CORE ↗</a>
-      
-    </div>
-  </div>
-  <div class="footer-bottom"><span>RAY/STUDIO © 2026</span><span class="pointer-readout">PX 000 / PY 000</span></div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
-<script src="../assets/js/app.js"></script>
-<script src="../assets/js/cursor-network.js"></script>
-<script src="../assets/js/void.js"></script>
-</body>
-</html>
+<a class="brand" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+<button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span aria-hidden="true">›</span></button>
+<nav id="main-nav" aria-label="Site navigation" aria-hidden="true">
+<a class="nav-link" href="../index.html">HOME</a><a class="nav-link" href="about.html">ABOUT</a><a class="nav-link" href="work.html">WORK</a><a class="nav-link" href="services.html">SERVICES</a><a class="nav-link" href="contact.html">CONTACT</a><a class="nav-link" href="lab.html">LAB</a><a class="nav-link" href="void.html">VOID</a><a class="nav-link" href="observatory.html">OBSERVATORY</a><a class="nav-link" href="core.html">CORE</a>
+</nav></header>
+<main class="inner-page void-page">
+<section class="galaxy-intro"><div><span class="exp-kicker">VOID / GALACTIC FIELD NOTES</span><h1>THE <em>MILKY WAY.</em></h1></div><p>Explore a face-on interpretation of our galaxy, then move through a few chapters in its history. The map is illustrative: we live inside the Milky Way and infer its shape from measurements, not from a view taken outside it.</p></section>
+<section class="galaxy-layout" aria-label="Interactive Milky Way simulation">
+<div class="galaxy-stage" id="galaxy-stage"><canvas id="milkyway-canvas" aria-label="Interactive face-on map of the Milky Way. Drag to move, use plus and minus to zoom, and select a location." data-cursor="DRAG"></canvas><div class="galaxy-label">MILKY WAY / FACE-ON MODEL</div><div class="galaxy-tooltip" id="galaxy-hint"><b>SELECT A MARKER</b>DRAG TO MOVE · SCROLL TO ZOOM</div></div>
+<aside class="galaxy-panel"><div class="galaxy-panel-head">FIELD GUIDE / <span id="galaxy-field-state">PRESENT DAY</span></div><div class="galaxy-fact" aria-live="polite"><small id="fact-kind">LOCATION / OVERVIEW</small><h2 id="fact-title">A galaxy seen from within</h2><p id="fact-copy">The Milky Way is a barred spiral galaxy. Gaia data continues to refine the shape of its bar, disc and multiple spiral arms.</p></div>
+<div class="galaxy-controls"><button type="button" id="galaxy-play" aria-pressed="true">PAUSE</button><button type="button" id="galaxy-zoom-in" aria-label="Zoom in">+</button><button type="button" id="galaxy-zoom-out" aria-label="Zoom out">−</button><label>VIEW <input id="galaxy-zoom" type="range" min="70" max="180" value="100"><output id="zoom-output">100%</output></label></div>
+<div class="galaxy-legend"><span><i></i>GALACTIC CENTRE</span><span><i></i>SUN / ORION SPUR</span><span><i></i>ARM TRACE</span></div><div class="galaxy-place-list" aria-label="Choose a map location"><button type="button" data-place="center">CENTRE</button><button type="button" data-place="sun">SUN</button><button type="button" data-place="arm">ARM TRACE</button><button type="button" data-place="halo">HALO</button></div></aside></section>
+<section class="galaxy-timeline"><div class="timeline-head"><span>GALACTIC HISTORY / SELECT A CHAPTER</span><span id="timeline-caption">PRESENT DAY · THE MAP IS STILL BEING REVISED</span></div><div class="timeline-events"><button type="button" data-era="early" aria-pressed="false">~13B / THICK DISC</button><button type="button" data-era="merger" aria-pressed="false">~10B / MERGER</button><button type="button" data-era="sun" aria-pressed="false">~4.6B / SUN</button><button type="button" data-era="present" aria-pressed="true">NOW / GAIA</button></div></section>
+<section class="galaxy-notes"><article><h3>Built in layers</h3><p>Gaia observations suggest the thick disc began forming about 13 billion years ago, soon after the Big Bang.</p></article><article><h3>A history of encounters</h3><p>Evidence in stellar motion points to a major merger about 10 billion years ago, leaving traces in the Milky Way's halo.</p></article><article><h3>Mapped from inside</h3><p>ESA's Gaia mission measured the positions and motions of almost two billion stars and other objects in and beyond our galaxy.</p></article></section>
+<section class="exp-section"><div class="exp-section-head"><h2>Read the source notes</h2><span class="exp-index">ESA / GAIA</span></div><p>Scientific map and discovery context: <a href="https://www.esa.int/Science_Exploration/Space_Science/Gaia/Gaia_factsheet" target="_blank" rel="noreferrer">Gaia factsheet ↗</a> · <a href="https://www.esa.int/Science_Exploration/Space_Science/Gaia/Gaia_s_decade_of_discoveries_unravelling_the_intricacies_of_our_galaxy" target="_blank" rel="noreferrer">Gaia's decade of discoveries ↗</a> · <a href="https://www.esa.int/Science_Exploration/Space_Science/Gaia/Guide_to_our_galaxy" target="_blank" rel="noreferrer">Guide to our galaxy ↗</a></p><p class="exp-meta">The star field is a visual model and does not represent a catalogue of observed individual stars. Structural details are simplified for exploration.</p></section><footer class="experience-footer"><a href="contact.html" data-cursor="SEND">START A CONVERSATION ↗</a><span>RAY/STUDIO · INDEPENDENT DIGITAL PRACTICE</span></footer><script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script><script src="../assets/js/milky-way.js"></script></main></body></html>
