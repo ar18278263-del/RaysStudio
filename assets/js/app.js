@@ -77,14 +77,15 @@ function nav(){
    n.classList.toggle("open",open);
    t.classList.toggle("open",open);
    t.setAttribute("aria-expanded",String(open));
+   t.setAttribute("aria-label",open?"Close navigation":"Open navigation");
    document.body.classList.toggle("nav-open",open);
    n.setAttribute("aria-hidden",String(!open));
  };
  setOpen(false);
  t.addEventListener("click",e=>{e.preventDefault();setOpen(!n.classList.contains("open"));});
  $$("#main-nav a").forEach(a=>a.addEventListener("click",()=>setOpen(false)));
- addEventListener("keydown",e=>{if(e.key==="Escape")setOpen(false)});
- addEventListener("resize",()=>{if(innerWidth>900)setOpen(false)},{passive:true});
+ addEventListener("keydown",e=>{if(e.key==="Escape"&&n.classList.contains("open")){setOpen(false);t.focus()}});
+ document.addEventListener("pointerdown",e=>{if(n.classList.contains("open")&&!e.target.closest(".site-header"))setOpen(false)},{passive:true});
 }
 function smooth(){if(reduce||!window.Lenis)return;const l=new Lenis({duration:1.1,lerp:.09});if(window.gsap){l.on("scroll",ScrollTrigger.update);gsap.ticker.add(t=>l.raf(t*1000));gsap.ticker.lagSmoothing(0)}else{const f=t=>{l.raf(t);requestAnimationFrame(f)};requestAnimationFrame(f)}}
 function split(){if(reduce||!window.SplitType||!window.gsap)return;$$(".split").forEach(el=>{try{const s=new SplitType(el,{types:"lines,words,chars"});gsap.from(s.chars,{yPercent:110,opacity:0,stagger:.012,duration:.7,ease:"power3.out",delay:.35})}catch(e){}})}
