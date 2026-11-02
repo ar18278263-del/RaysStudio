@@ -1,81 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#060606"><meta name="description" content="RAY/STUDIO CORE — interactive route map and simulated field controls.">
-<title>RAY/STUDIO — CORE</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505">
+<meta name="description" content="RAY/STUDIO CORE is a small route atlas showing how the studio's work connects."><title>RAY/STUDIO — CORE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/core-new.css">
-<link rel="stylesheet" href="../assets/css/sections/header.css">
-<link rel="stylesheet" href="../assets/css/sections/site-polish.css">
+<link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/sections/header.css"><link rel="stylesheet" href="../assets/css/sections/site-polish.css"><link rel="stylesheet" href="../assets/css/sections/loading.css"><link rel="stylesheet" href="../assets/css/experiences.css">
 </head>
-<body class="core-new-page">
-<div class="grain" aria-hidden="true"></div>
-<div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true">CORE</div>
-<header class="site-header core-header">
-  <a class="brand" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
-  <nav id="main-nav" aria-hidden="true">
-    <a class="nav-link" href="../index.html" data-cursor="OPEN">HOME</a><div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
-    <a class="nav-link" href="about.html" data-cursor="OPEN">ABOUT</a><a class="nav-link" href="work.html" data-cursor="OPEN">WORK</a><a class="nav-link" href="services.html" data-cursor="OPEN">SERVICES</a><a class="nav-link" href="contact.html" data-cursor="SEND">CONTACT</a><a class="nav-link" href="lab.html" data-cursor="LAB">LAB</a><a class="nav-link" href="void.html" data-cursor="VOID">VOID</a><a class="nav-link" href="observatory.html" data-cursor="ORBIT">OBSERVATORY</a><a class="nav-link active" href="core.html" data-cursor="CORE" aria-current="page">CORE</a>
-  </nav><button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-</header>
-
-<main>
-<section class="core-command-hero">
-  <div class="core-hero-grid">
-    <div class="core-intro">
-      <div class="eyebrow"><span class="live-dot"></span> CORE / INTERACTIVE SIMULATION</div>
-      <h1>CORE<br><em>CONTROL</em></h1>
-      <p>A control surface for the RAY/STUDIO routes. Adjust the simulated field, inspect its changing signal, and use the map to move between pages.</p>
-      <div class="core-hero-cta"><a class="ball-arrow huge" href="contact.html" data-cursor="SEND"><span>INITIALIZE A BUILD</span><b><i></i></b></a></div>
-    </div>
-    <div class="core-reactor-wrap">
-      <div class="reactor-head"><span>CORE REACTOR</span><b id="reactor-mode">BALANCED</b></div>
-      <canvas id="core-reactor" data-cursor="DRAG" aria-label="Animated CORE reactor visualization"></canvas>
-      
-      <div class="reactor-crosshair" aria-hidden="true"></div>
-    </div>
-  </div>
-  
-</section>
-
-<section class="core-map-section">
-  <div class="section-lead"><span>01 / SYSTEM MAP</span><h2>ONE SYSTEM.<br><em>MANY ROUTES.</em></h2><p>Every route connects back to the core. Select a node to open that part of the studio.</p></div>
-  <div class="system-map">
-    <canvas id="map-canvas" data-cursor="DRAG" aria-hidden="true"></canvas>
-    <div class="map-center"><span>ROUTE</span><b>SELECT A NODE</b></div>
-    <a class="map-node home" href="../index.html" data-cursor="OPEN"><b>HOME</b><small>ENTRY</small></a>
-    <a class="map-node about" href="about.html" data-cursor="OPEN"><b>ABOUT</b><small>METHOD</small></a>
-    <a class="map-node work" href="work.html" data-cursor="ENTER"><b>WORK</b><small>CASES</small></a>
-    <a class="map-node lab" href="lab.html" data-cursor="LAB"><b>LAB</b><small>EXPERIMENTS</small></a>
-    <a class="map-node void" href="void.html" data-cursor="VOID"><b>VOID</b><small>GRAVITY</small></a>
-    <a class="map-node obs" href="observatory.html" data-cursor="ORBIT"><b>OBSERVATORY</b><small>FIELD</small></a>
-    <a class="map-node services" href="services.html" data-cursor="OPEN"><b>SERVICES</b><small>CAPABILITIES</small></a>
-    <a class="map-node contact" href="contact.html" data-cursor="SEND"><b>CONTACT</b><small>CHANNEL</small></a>
-  </div>
-</section>
-
-<section class="core-instrument-section">
-  <div class="section-lead"><span>02 / INSTRUMENT PANEL</span><h2>TUNE THE<br><em>BEHAVIOUR.</em></h2><p>Adjust the simulated field to change the reactor response.</p></div>
-  <div class="instrument-grid">
-    <div class="instrument-card controls"><div class="instrument-head"><span>FIELD CONTROL</span><b id="control-state">ADAPTIVE</b></div>
-      <label>ENERGY <output id="energy-out">72%</output><input id="energy" type="range" min="0" max="100" value="72"></label>
-      <label>DENSITY <output id="density-out">48%</output><input id="density" type="range" min="0" max="100" value="48"></label>
-      <label>RESPONSE <output id="response-out">64%</output><input id="response" type="range" min="0" max="100" value="64"></label>
-      <div class="switch-row"><span>ADAPTIVE BUS</span><button id="adaptive" class="switch active" aria-label="Adaptive bus" aria-pressed="true"><i></i></button></div>
-      <div class="control-buttons"><button id="pulse">PULSE BUS</button><button id="reset">RESET</button></div>
-    </div>
-    <div class="instrument-card telemetry"><div class="instrument-head"><span>SIMULATED TRACE</span><b id="telemetry-state">RUNNING</b></div><canvas id="telemetry" role="img" aria-label="Simulated signal trace driven by the field controls"></canvas></div>
-    <div class="instrument-card console"><div class="instrument-head"><span>COMMAND CONSOLE</span><b>CORE.SHELL</b></div><div id="console-output" class="console-output"><div><i>SIMULATION</i> ready. Type <b>HELP</b>.</div></div><form id="console-form"><span>›</span><input id="console-input" autocomplete="off" spellcheck="false" placeholder="ENTER COMMAND"><button>EXEC</button></form><div class="console-shortcuts"><button data-cmd="STATUS">STATUS</button><button data-cmd="ROUTES">ROUTES</button><button data-cmd="PULSE">PULSE</button><button data-cmd="HELP">HELP</button><button data-cmd="CLEAR">CLEAR</button></div></div>
-  </div>
-</section>
-
-<section class="core-log-section">
-  <div class="section-lead"><span>03 / SESSION LOG</span><h2>SESSION<br><em>ACTIVITY.</em></h2></div>
-  <div class="journal"><div class="journal-head"><span>TIMESTAMP</span><span>CHANNEL</span><span>EVENT</span><span>STATE</span></div><div id="journal-body"></div></div>
-</section>
-</main>
-<footer class="site-footer"><div class="footer-main"><a class="footer-mark" href="../index.html" data-cursor="HOME">RAY<span>/</span></a><div class="footer-command">BUILD SOMETHING<br><i>THAT RESPONDS.</i></div><p class="footer-sub">RAY/STUDIO builds digital interfaces, identities and interactive systems.</p><a class="footer-command-link" href="contact.html" data-cursor="SEND"><span>INITIALIZE A NEW SYSTEM</span><b>↗</b></a></div></footer>
-<script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script><script src="../assets/js/core-engine-new.js"></script>
-</body></html>
+<body class="experience-page core-page">
+<canvas id="system-canvas" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
+<div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true"></div>
+<div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading RAY/STUDIO"><div class="boot-mark">RAY<span>/</span></div><div class="boot-track"><i></i></div><div class="boot-meta"><span>INITIALIZING VISUAL SYSTEM</span><b>LOADING</b></div></div>
+<header class="site-header">
+<a class="brand" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+<button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span aria-hidden="true">›</span></button>
+<nav id="main-nav" aria-label="Site navigation" aria-hidden="true">
+<a class="nav-link" href="../index.html">HOME</a><a class="nav-link" href="about.html">ABOUT</a><a class="nav-link" href="work.html">WORK</a><a class="nav-link" href="services.html">SERVICES</a><a class="nav-link" href="contact.html">CONTACT</a><a class="nav-link" href="lab.html">LAB</a><a class="nav-link" href="void.html">VOID</a><a class="nav-link" href="observatory.html">OBSERVATORY</a><a class="nav-link" href="core.html">CORE</a>
+</nav></header>
+<main class="inner-page core-page">
+<section class="exp-hero"><div><span class="exp-kicker">CORE / ROUTE ATLAS</span><h1>FOLLOW<br>THE <em>THREAD.</em></h1></div><p>RAY/STUDIO is a set of connected practices, not a collection of isolated pages. Choose a node and trace the path from the question to the thing someone uses.</p></section>
+<section class="core-atlas" aria-label="Interactive route atlas">
+<div class="core-graph"><canvas id="core-canvas" aria-hidden="true"></canvas><span class="core-graph-label">STUDIO / CONNECTION MAP</span><div class="core-node-list">
+<button class="core-node" data-node="observe" aria-pressed="true">OBSERVE</button><button class="core-node" data-node="frame" aria-pressed="false">FRAME</button><button class="core-node" data-node="shape" aria-pressed="false">SHAPE</button><button class="core-node" data-node="build" aria-pressed="false">BUILD</button><button class="core-node" data-node="release" aria-pressed="false">RELEASE</button><button class="core-node" data-node="learn" aria-pressed="false">LEARN AGAIN</button></div></div>
+<article class="core-readout"><small id="core-step">ROUTE / 01</small><div><h2 id="core-title">Observe<br>the edges.</h2><p id="core-copy">We look at the context around the request: the people, the constraints and the moments that feel harder than they should.</p></div><a id="core-link" href="about.html">READ OUR APPROACH ↗</a></article></section>
+<section class="exp-section"><div class="exp-section-head"><h2>A system that loops</h2><span class="exp-index">FIELD NOTE / 01</span></div><p>Release is not the end of the map. Use what happens in the real interface to refine the next question.</p></section><footer class="experience-footer"><a href="contact.html" data-cursor="SEND">START A CONVERSATION ↗</a><span>RAY/STUDIO · INDEPENDENT DIGITAL PRACTICE</span></footer><script src="../assets/js/app.js"></script><script src="../assets/js/cursor-network.js"></script><script src="../assets/js/core-atlas.js"></script></main></body></html>

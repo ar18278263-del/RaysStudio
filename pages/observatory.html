@@ -12,21 +12,18 @@
 <canvas id="system-canvas" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div><div class="cursor-ball" aria-hidden="true"><span></span></div><div class="cursor-label" aria-hidden="true">VIEW</div>
 <div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading RAY/STUDIO"><div class="boot-mark">RAY<span>/</span></div><div class="boot-track"><i></i></div><div class="boot-meta"><span>CALIBRATING OBSERVATORY</span><b>LOADING</b></div></div>
 <header class="site-header">
-  <a class="brand" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
-  <nav id="main-nav" aria-hidden="true">
-    <a class="nav-link" href="../index.html" data-cursor="OPEN">HOME</a>
-    <div class="header-meta header-clock"><i></i><span class="clock">00:00:00</span><small>SECURE CHANNEL</small></div>
-    <a class="nav-link" href="../pages/about.html" data-cursor="OPEN">ABOUT</a>
-    <a class="nav-link" href="../pages/work.html" data-cursor="OPEN">WORK</a>
-    <a class="nav-link" href="../pages/services.html" data-cursor="OPEN">SERVICES</a>
-    <a class="nav-link" href="../pages/contact.html" data-cursor="SEND">CONTACT</a>
-    <a class="nav-link" href="../pages/lab.html" data-cursor="LAB">LAB</a>
-    <a class="nav-link" href="../pages/void.html" data-cursor="VOID">VOID</a>
-    <a class="nav-link" href="../pages/observatory.html" data-cursor="ORBIT">OBSERVATORY</a>
-    <a class="nav-link" href="../pages/core.html" data-cursor="CORE">CORE</a>
-  </nav>
-  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-</header>
+<a class="brand" href="../index.html" data-cursor="HOME">RAY<span>/</span>STUDIO</a>
+<button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span aria-hidden="true">›</span></button>
+<nav id="main-nav" aria-label="Site navigation" aria-hidden="true">
+<a class="nav-link" href="../index.html">HOME</a>
+<a class="nav-link" href="../pages/about.html">ABOUT</a>
+<a class="nav-link" href="../pages/work.html">WORK</a>
+<a class="nav-link" href="../pages/services.html">SERVICES</a>
+<a class="nav-link" href="../pages/contact.html">CONTACT</a>
+<a class="nav-link" href="../pages/lab.html">LAB</a>
+<a class="nav-link" href="../pages/void.html">VOID</a>
+<a class="nav-link" href="../pages/observatory.html">OBSERVATORY</a>
+<a class="nav-link" href="../pages/core.html">CORE</a></nav></header>
 <main class="observatory-page">
 <section class="observatory-hero section-pad"><div class="observatory-intro"><span class="section-index">10 / OBSERVATORY</span><h1 class="display-title split">SLOW<br>DOWN<br><i>THE SIGNAL</i></h1><p>Orbit a living field of points, lines and interference. Nothing is static. Nothing needs to be explained twice.</p><div class="observatory-stats"><span>PLANETS <b id="obs-particles">008</b></span><span>MODE <b id="obs-mode">ORBIT</b></span></div></div><div class="observatory-stage panel" id="observatory-stage"><canvas id="observatory-canvas" data-cursor-type="drag" aria-label="Solar system simulation in orbit mode. Drag to pan, use the wheel to zoom, and click a planet to open its route."></canvas><div class="obs-hud"><span>DRAG / ORBIT</span><span>WHEEL / ZOOM</span><span>CLICK / OPEN ROUTE</span></div><div class="obs-crosshair"></div><button id="obs-pulse" class="submit-signal" data-cursor="PULSE"><span>IMPULSE</span><i>+</i></button></div></section>
 <section class="observatory-controls section-pad"><div><span class="section-index">11 / CONTROL</span><h2>TUNE<br>THE<br><i>ROOM</i></h2></div><div class="obs-control-grid"><button class="obs-mode active" data-mode="orbit" data-cursor="MODE"><span>01</span><b>ORBIT</b><small>slow / circular</small></button><button class="obs-mode" data-mode="storm" data-cursor="MODE"><span>02</span> <b>STORM</b><small>fast / unstable</small></button><button class="obs-mode" data-mode="drift" data-cursor="MODE"><span>03</span><b>DRIFT</b><small>wide / quiet</small></button><button class="obs-mode" data-mode="void" data-cursor="MODE"><span>04</span><b>VOID</b><small>minimal / deep</small></button></div></section>
