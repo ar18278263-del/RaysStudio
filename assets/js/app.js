@@ -308,7 +308,7 @@ function systemMap(){
  });
 }
 
-function contactForm(){const f=$("#contact-form"),bar=$("#form-progress"),status=$("#form-status");if(!f)return;f.addEventListener("input",()=>{const fields=[...f.querySelectorAll("input,select,textarea")],done=fields.filter(x=>x.value.trim()).length;bar.style.width=(done/fields.length*100)+"%"});f.addEventListener("submit",e=>{e.preventDefault();status.textContent="TRANSMISSION QUEUED / DEMO COMPLETE — CONNECT A BACKEND TO SEND FOR REAL.";f.reset();bar.style.width="0%";const b=f.querySelector(".submit-signal span");b.textContent="SIGNAL RECEIVED";setTimeout(()=>b.textContent="TRANSMIT BRIEF",2600)})}
+function contactForm(){const f=$("#contact-form"),bar=$("#form-progress"),status=$("#form-status");if(!f)return;f.addEventListener("input",()=>{const fields=[...f.querySelectorAll('input:not([type="radio"]),select,textarea')],groups=[...new Set([...f.querySelectorAll('input[type="radio"]')].map(x=>x.name))],done=fields.filter(x=>x.value.trim()).length+groups.filter(name=>f.querySelector('input[type="radio"][name="'+name+'"]:checked')).length;bar.style.width=(done/(fields.length+groups.length)*100)+"%"});f.addEventListener("submit",e=>{e.preventDefault();status.textContent="TRANSMISSION QUEUED / DEMO COMPLETE — CONNECT A BACKEND TO SEND FOR REAL.";f.reset();bar.style.width="0%";const b=f.querySelector(".submit-signal span");b.textContent="SIGNAL RECEIVED";setTimeout(()=>b.textContent="TRANSMIT BRIEF",2600)})}
 function activeNav(){
  const current=new URL(location.href);
  $$("#main-nav .nav-link").forEach(a=>{
